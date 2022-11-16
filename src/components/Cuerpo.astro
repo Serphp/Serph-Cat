@@ -1,5 +1,5 @@
 ---
-
+import Navbar from "./Navbar.astro";
 ---
 
 <html lang="en">
@@ -10,15 +10,10 @@
 		<meta name="generator" content={Astro.generator} />
 		<title> Serph - Cat </title>
 	</head>
-	<body>
-		
-        <ul>
-            <li><a href="/"> Home </a></li>
-            <li><a href="/Cats"> Cats </a></li>
-            <li><a href="/blog"> Blogs </a></li>
-        </ul>
-
+	<body class="bg-gray-800 text-white">
+        <Navbar />
+	<main class=" mx-auto container py-5"> 
         <slot />
-
+    </main>
 	</body>
 </html>
