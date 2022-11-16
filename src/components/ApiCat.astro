@@ -6,12 +6,23 @@ console.log(data)
 --- 
 
 
-<section class=" grid grid-cols-3 object-cover"> 
+<section class="mt"> 
 {
     data.map((cat) => {
         return (
-            <div class=" ">
-                <img class="transition-all duration-500 overflow-auto" src={cat.url} alt="cat" width="300" height="200" />
+            <div class="card">
+            <div class="card-image">
+            <figure class="image is-300">
+            <img class="" src={cat.url} alt="cat" alt="Placeholder image">
+            </figure>
+            </div>
+            </div>
+            <div class="card">
+            <footer class="card-footer">
+            <a href="#" class="card-footer-item">Save</a>
+            <a href="#" class="card-footer-item">Edit</a>
+            <a href="#" class="card-footer-item">Delete</a>
+            </footer>
             </div>
         )
     })

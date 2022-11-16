@@ -18,12 +18,35 @@ const navtitle = [
 
 ---
 
-<nav class=" bg-transparent text-white p-10 px-20 flex justify-between">
-    <h1 class=" gap-5">Serph - Cat </h1>
-    <ul class="flex gap-5"> 
-    {
-        navtitle.map((item) => (<NavItem title={item.title} url={item.url} />))
-    }
-    </ul>
+<nav class="navbar">
+    <div class="navbar">
+    <span class="logo">
+      Serphp
+    </span>
+    <div id="navbarExampleTransparentExample" class="navbar-menu">
+    </div>
+    </div>
+
+    <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+            {
+                navtitle.map((item) => (<NavItem title={item.title} url={item.url}></NavItem>))
+            }
+            </p>
+
+
+            <p class="control">
+              <a class="button is-primary" href="https://github.com/jgthms/bulma/releases/download/0.9.4/bulma-0.9.4.zip">
+                <span class="icon">
+                  <i class="fas fa-download"></i>
+                </span>
+                <span>Github</span>
+              </a>
+            </p>
+          </div>
+        </div>
+    </div>
 </nav>
 
