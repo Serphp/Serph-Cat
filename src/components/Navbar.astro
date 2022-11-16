@@ -1,0 +1,29 @@
+---
+import NavItem from "./NavItem.astro";
+
+const navtitle = [
+    {
+        title: "Home",
+        url: "/"
+    },
+    {
+        title: "Cats",
+        url: "/cats"
+    },
+    {
+        title: "Blogs",
+        url: "/blog"
+    }
+]
+
+---
+
+<nav class=" bg-transparent text-white p-10 px-20 flex justify-between">
+    <h1 class=" gap-5">Serph - Cat </h1>
+    <ul class="flex gap-5"> 
+    {
+        navtitle.map((item) => (<NavItem title={item.title} url={item.url} />))
+    }
+    </ul>
+</nav>
+
