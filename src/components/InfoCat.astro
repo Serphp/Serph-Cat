@@ -1,0 +1,74 @@
+---
+
+const breedId = 2;
+const cat1 = "Bengal"
+
+const cat = "https://api.thecatapi.com/v1/images/search??breed_ids=" + breedId;
+const cat2 = "https://api.thecatapi.com/v1/breeds/search?q=" + cat1;
+//const catimg = "https://cdn2.thecatapi.com/images/" + data[0].reference_image_id;
+
+const res = await fetch(cat2)
+const data = await res.json()
+
+//const dataimg = new Image(data[0].reference_image_id);
+const catimg = "https://cdn2.thecatapi.com/images/" + data[0].reference_image_id + ".png";
+//dataimg.src = catimg;
+//console.log(data[0].reference_image_id)
+//console.log(data)
+//console.log(data2)
+//console.log(data.reference_image_id) 
+
+--- 
+
+{
+    data.map((cati: { name: String; origin: unknown; country_code: unknown; description: unknown; reference_image_id: unknown; temperament: unknown; life_span: unknown; wikipedia_url: string | URL; vetstreet_url: string | URL; vcahospitals_url: string | URL; }) => {
+      return (<> 
+      <div class="card">
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <img src={`${catimg}`} alt="Placeholder image">
+      </figure>
+    </div>
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          <figure class="image is-48x48">
+            <img src={`${catimg}`} alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="media-content">
+          <p class="title is-4">{cati.name}</p>
+          <p class="subtitle is-6">{cati.origin} [{cati.country_code}]</p>
+        </div>
+      </div>
+  
+      <div class="content is-small">
+    <p>{cati.description}</p>
+    <p> codigo: {cati.reference_image_id} </p>
+
+    <h2>Status</h2>
+
+    <ul>
+      <li><b>Temperament:</b> {cati.temperament}</li>
+      <li><b>Age:</b> {cati.life_span}</li>
+      <li>..</li>
+      <li>...</li>
+    </ul>
+  </div>
+
+      <div class="content">
+        
+    </div>
+  </div>
+
+  <footer class="card-footer">
+    <a href={cati.wikipedia_url} class="card-footer-item">Wikipedia</a>
+    <a href={cati.vetstreet_url} class="card-footer-item">Veterinary</a>
+    <a href={cati.vcahospitals_url} class="card-footer-item">Hospital</a>
+  </footer>
+</div>
+
+      </>)  
+    })
+
+
