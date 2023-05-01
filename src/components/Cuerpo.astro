@@ -1,20 +1,23 @@
 ---
 import Navbar from "./Navbar.astro";
-import '../styles/serph.css'
+import "../styles/serph.css";
 ---
+
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-		<title> Serph - Cat </title>
-	</head>
-	<body class="container">
-        <Navbar />
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <title>Serph - Cat</title>
+  </head>
+  <body class="container">
+    <Navbar />
 
-        <slot />
-
-	</body>
+    <slot />
+  </body>
 </html>

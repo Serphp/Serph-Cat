@@ -1,30 +1,45 @@
 ---
-const res = await fetch('https://api.thecatapi.com/v1/images/search?limit=3&mime_types=gif')
-const data = await res.json()
-//console.log(data) 
+const res = await fetch(
+  "https://api.thecatapi.com/v1/images/search?limit=3&mime_types=gif"
+);
+const data = await res.json();
+//console.log(data)
+---
 
---- 
-
-
-<section class="mt"> 
-{
+<section class="mt">
+  {
     data.map((cat) => {
-        return (
-            <div class="card">
+      return (
+        <>
+          <div class="card">
             <div class="card-image">
-            <figure class="image is-300">
-            <img class="" src={cat.url} alt="cat" alt="Placeholder image">
-            </figure>
+              <figure class="image">
+                <img
+                  class="box-sphp"
+                  src={cat.url}
+                  alt="cat"
+                  alt="Placeholder image"
+                  width="200"
+                  height="200"
+                />
+              </figure>
             </div>
-            </div>
-            <div class="card">
+          </div>
+          <div class="card">
             <footer class="card-footer">
-            <a href="#" class="card-footer-item">Save</a>
-            <a href="#" class="card-footer-item">Edit</a>
-            <a href="#" class="card-footer-item">Delete</a>
+              <a href="#" class="card-footer-item">
+                Save
+              </a>
+              <a href="#" class="card-footer-item">
+                Edit
+              </a>
+              <a href="#" class="card-footer-item">
+                Delete
+              </a>
             </footer>
-            </div>
-        )
+          </div>
+        </>
+      );
     })
-}
+  }
 </section>

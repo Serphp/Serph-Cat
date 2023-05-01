@@ -28,3 +28,9 @@ h1{
     margin-inline: 250px;
     background-origin: border-box;
 }
+
+.catimg {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+}
