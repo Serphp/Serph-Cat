@@ -7,17 +7,17 @@ export const UserContext = createContext();
 const UserContextProvider = ({ children }) => {
     const [loading, setLoading] = useState(true)
     const [username, setUsername] = useState(null)
-    const [website, setWebsite] = useState(null)
+    const [bio, setBio] = useState(null)
     const [avatar_url, setAvatarUrl] = useState(null)
+    const [withcat, setWithcat] = useState(null)
     const user = useUser()
 
       async function getProfile() {
         try {
           setLoading(true)
-    
           let { data, error, status } = await supabase
             .from('profiles')
-            .select(`username, website, avatar_url`)
+            .select(`username, bio, avatar_url, withcat`)
             .eq('id', user.id)
             .single()
     
@@ -27,8 +27,9 @@ const UserContextProvider = ({ children }) => {
     
           if (data) {
             setUsername(data.username)
-            setWebsite(data.website)
+            setBio(data.bio)
             setAvatarUrl(data.avatar_url)
+            setWithcat(data.withcat)
           }
         } catch (error) {
           alert('Error loading user data!')

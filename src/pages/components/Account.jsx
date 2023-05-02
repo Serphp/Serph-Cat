@@ -1,13 +1,17 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
+//import UserContext from '../Context/UserContext'
 
 export default function Account({ session }) {
+  //const { getProfile } = useContext(UserContext)
   const supabase = useSupabaseClient()
   const user = useUser()
   const [loading, setLoading] = useState(true)
   const [username, setUsername] = useState(null)
-  const [website, setWebsite] = useState(null)
+  const [bio, setBio] = useState(null)
   const [avatar_url, setAvatarUrl] = useState(null)
+  const [withcat, setWithcat] = useState(false)
+  const [fullname, setFullName] = useState(null)
 
   useEffect(() => {
     getProfile()
@@ -16,10 +20,9 @@ export default function Account({ session }) {
   async function getProfile() {
     try {
       setLoading(true)
-
       let { data, error, status } = await supabase
         .from('profiles')
-        .select(`username, website, avatar_url`)
+        .select(`username, bio, avatar_url, withcat, fullname`)
         .eq('id', user.id)
         .single()
 
@@ -29,8 +32,10 @@ export default function Account({ session }) {
 
       if (data) {
         setUsername(data.username)
-        setWebsite(data.website)
+        setBio(data.bio)
         setAvatarUrl(data.avatar_url)
+        setFullName(data.fullname)
+        setWithcat(data.withcat)
       }
     } catch (error) {
       alert('Error loading user data!')
@@ -40,18 +45,20 @@ export default function Account({ session }) {
     }
   }
 
-  async function updateProfile({ username, website, avatar_url }) {
+
+  async function updateProfile({ username, bio, avatar_url }) {
     try {
       setLoading(true)
 
       const updates = {
         id: user.id,
         username,
-        website,
+        bio,
         avatar_url,
+        fullname,
+        withcat,
         updated_at: new Date().toISOString(),
       }
-
       let { error } = await supabase.from('profiles').upsert(updates)
       if (error) throw error
       alert('Profile updated!')
@@ -65,6 +72,7 @@ export default function Account({ session }) {
 
   return (
     <div className="form-widget">
+      <h1>Actualizar Perfil</h1>
       <div>
         <label htmlFor="email">Email</label>
         <input id="email" type="text" value={session.user.email} disabled />
@@ -79,19 +87,38 @@ export default function Account({ session }) {
         />
       </div>
       <div>
-        <label htmlFor="website">Website</label>
+        <label htmlFor="fullname"> Nombre </label>
         <input
-          id="website"
-          type="url"
-          value={website || ''}
-          onChange={(e) => setWebsite(e.target.value)}
+          id="fullname"
+          type="text"
+          value={fullname || ''}
+          onChange={(e) => setFullName(e.target.value)}
         />
       </div>
+      <div>
+        <label htmlFor="bio">Biografia</label>
+        <input
+          id="bio"
+          type="url"
+          value={bio || ''}
+          onChange={(e) => setBio(e.target.value)}
+        />
+      </div>
+      <label htmlFor="withcat">Tienes gato?</label>
+      <select
+        id="withcat"
+        name="withcat"
+        value={withcat || ''}
+        onChange={(e) => setWithcat(e.target.value)}
+      >
+        <option value="true">Si</option>
+        <option value="false">No</option>
+      </select>
 
       <div>
         <button
           className="button primary block"
-          onClick={() => updateProfile({ username, website, avatar_url })}
+          onClick={() => updateProfile({ username, bio, avatar_url })}
           disabled={loading}
         >
           {loading ? 'Loading ...' : 'Update'}
