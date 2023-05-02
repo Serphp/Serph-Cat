@@ -8,15 +8,22 @@ import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
 import Account from './components/Account'
 import Avatar from '../pages/components/Avatar'
 
-export default function Home() {
+export default function Profile() {
   const session = useSession()
   const supabase = useSupabaseClient()
 
   return (
     <>
     <div className='flex flex-col items-center justify-center min-h-screen py-2'>
-      <h1 className='text-6xl font-bold'> Proyect Cat </h1>
+      <h1 className='text-6xl font-bold'> Profile </h1>
 
+      <div className="container" style={{ padding: '50px 0 100px 0' }}>
+      {!session ? (
+        <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} theme="dark" />
+      ) : (
+        <Account session={session} />
+      )}
+      </div>
 {/* 
           <ApiCat /> */}
     </div>

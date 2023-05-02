@@ -1,26 +1,36 @@
-import { React, createContext } from 'react';
-import { supabase } from '../lib/supabase';
+import React, { createContext, useState } from 'react';
+import { supabase } from '../Superbase';
 
 export const UserContext = createContext();
 
 const UserContextProvider = ({ children }) => {
+    const [name, setName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [age, setAge] = useState('');
 
-    const handleLogin = async () => {
-        const { user, session, error } = await supabase.auth.signIn({
-            provider: 'google',
-        });
-    };
-
-    (async () => {
-        const { data, error } = await supabase.from('Users').select('*');
-        if (error) {
-          console.error(error);
-        } else {
-          console.log(data);
+    const handleRegister = async (event) => {
+        event.preventDefault();
+        try {
+          const { data, error } = await supabase
+            .from('Users')
+            .insert([
+              { name, lastName, age }
+            ]);
+    
+          if (error) {
+            throw error;
+          }
+    
+          console.log('User added successfully');
+        } catch (error) {
+          console.error('Error adding user:', error);
         }
-      })();
+      };
 
-      const value = { handleLogin };
+      const value = { 
+        handleRegister,
+        name, setAge, age, setLastName, lastName, setName,
+     };
 
     return (
         <UserContext.Provider value={value}>
