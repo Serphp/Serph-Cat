@@ -32,12 +32,27 @@ export default function Cat() {
   }, []);
 
   return (
-    <div>
+    <>
+      <section className='container2'>
+
+
       {cats.map((cat) => (
-        <div key={cat.id}>
-          <img src={cat.url} alt="cat" />
+        <div className='' key={cat.id}>
+
+          <div className='catitle'> {cat.id} </div>
+
+            <div className='item'>
+              <img src={cat.url} alt="cat" width={300} height={200}/>
+            </div>
+            <div className='itemop'>
+              <button className='itembutton'>Like</button>
+              <button className='itembutton'>Dislike</button>
+            </div>
         </div>
       ))}
-    </div>
+
+
+      </section>
+    </>
   );
 }
