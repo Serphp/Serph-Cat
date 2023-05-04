@@ -63,11 +63,21 @@ h1{
 }
 
 /* Grid */
+.contenedor {
+  display: flex;
+  margin: 20px;
+  border-radius: 10px;
+  background-color: rgba(240, 248, 255, 0.353);
+  gap: 10px;
+  //width: 90%;
 
+  padding: 20px;
+}
 .container {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+  //background-color: #24b47e;
 }
 .row {
   position: relative;
