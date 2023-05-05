@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react'
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 //import UserContext from '../Context/UserContext'
+import Upload from './Upload'
 
 export default function Account({ session }) {
   //const { getProfile } = useContext(UserContext)
@@ -73,6 +74,17 @@ export default function Account({ session }) {
   return (
     <div className="form-widget">
       <h1>Actualizar Perfil</h1>
+
+      <Upload
+      uid={user.id}
+      url={avatar_url}
+      size={150}
+      onUpload={(url) => {
+        setAvatarUrl(url)
+        updateProfile({ username, bio, avatar_url: url })
+      }}
+    />
+
       <div>
         <label htmlFor="email">Email</label>
         <input id="email" type="text" value={session.user.email} disabled />
@@ -118,7 +130,7 @@ export default function Account({ session }) {
       <div>
         <button
           className="button primary block"
-          onClick={() => updateProfile({ username, bio, avatar_url })}
+          onClick={() => updateProfile({ username, bio, avatar_url, withcat, fullname })}
           disabled={loading}
         >
           {loading ? 'Loading ...' : 'Update'}

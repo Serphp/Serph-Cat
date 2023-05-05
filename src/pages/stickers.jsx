@@ -6,7 +6,19 @@ export default function Stickers() {
   return (
     <>
         <div className="contenedor">
-        <h1> Hola </h1>
+
+          <div className="catinfo">
+            <div className="catinfoitem">
+              <h1> hola </h1>
+            </div>
+            <div className="catinfoitem">
+              <h1> hola </h1>
+            </div>
+            <div className="catinfoitem">
+              <h1> hola </h1>
+            </div>
+          </div>
+
         </div>
     </>
   )

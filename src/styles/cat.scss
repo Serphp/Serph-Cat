@@ -1,11 +1,6 @@
 .catconteiner {
     display: flex;
     flex-wrap: wrap;
-    
-    //flex-direction: row;
-    // align-items: center;
-    // justify-content: center;
-    //margin: 0 20px 0 -20px;
     gap: 10px;
     width: 100%;
     height: 80%;
@@ -16,14 +11,17 @@
         flex: 1;
         flex-direction: column-reverse;
         align-items: flex-end;
-        justify-content: center;
+        justify-content: flex-start;
         background: url('https://img.freepik.com/free-vector/cute-shiba-inu-dog-sushi-cartoon-icon-illustration_138676-2413.jpg?w=900&t=st=1683218556~exp=1683219156~hmac=648bda97bcf590efb58096f91f1992a14cc582ed69c4f5f620a1ab8a7ea274aa');
         background-size: cover;
         width: 50%;
         height: 50%;
         padding: 20px;
         border-radius: 10px;
-        //border: red solid 1px;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            box-shadow: 0 0 50px 0 rgba(255, 255, 255, 0.17);
+        }
     }
     .catbuttom{
         display: flex;
@@ -37,6 +35,10 @@
         padding: 20px;
         border-radius: 10px;
         //border: red solid 1px;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            box-shadow: 0 0 50px 0 rgba(255, 255, 255, 0.17);
+        }
     }
     .catright {
         display: flex;
@@ -44,53 +46,54 @@
         flex-direction: column;
         background: url('https://img.freepik.com/free-vector/hand-drawn-kawaii-illustration_52683-85164.jpg?w=1060&t=st=1683218436~exp=1683219036~hmac=fe90bce9b6fcedd1b9f2fd5ff5202c213d4f0ffdd132753aa60706160d1427b9');
         background-size: cover;
-        align-items: center;
-        justify-content: center;
+        align-items: flex-start;
+        justify-content: flex-start;
         border-radius: 10px;
         width: 50%;
         height: 50%;
         padding: 20px;
-        //border: red solid 1px;
-        .catimg {
-            width: 100%;
-            height: 100%;
-            //border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            box-shadow: 0 0 50px 0 rgba(255, 255, 255, 0.17);
         }
+        // .catright::after {
+        //     content: "";
+        //     display: block;
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     width: 100%;
+        //     height: 100%;
+        //     box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+        //     opacity: 0;
+        //     transition: opacity .3s ease-in-out;
+        //   }
+          
+        //   .catright:hover::after {
+        //     opacity: 1;
+        //   }
+    }
+}
 
-        .catinfo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            .catinfoitem {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                height: 100%;
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-                .catinfoitemtitle {
-                    font-size: 1.2rem;
-                    font-weight: bold;
-                    color: #333;
-                    margin-right: 20px;
-                }
-                .catinfoitemvalue {
-                    font-size: 1.2rem;
-                    font-weight: bold;
-                    color: #333;
-                }
-            }
-        }
+
+.catinfo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    height: 80%;
+
+    .catinfoitem {
+        display: flex;
+        flex-basis: calc(50% - 5px);
+        width: 50%;
+        //height: 50%;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .catinfoitem > div:last-child {
+        flex-basis: calc(50% - 10px);
     }
 }
 
@@ -103,14 +106,17 @@
 }
 
 .catbutton {
-    background-color: transparent;
-    border: #333 solid 1px;
+    background-color: rgb(255, 255, 255);
+    //border: #333 solid 1px;
+    border: none;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.507);
     transition: all 0.3s ease-in-out;
     &:hover {
         background-size: cover;
         transform: scale(1.1);
-        background-color: #29292974;
-        color: #ffffff83; 
+        background-color: rgb(255, 255, 255);
+        color: rgba(0, 0, 0, 0.507);
         box-shadow: 5px 5px 0px 2px rgba(0, 0, 0, 0.5);
     }
 }

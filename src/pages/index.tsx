@@ -1,16 +1,10 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 /* eslint-disable @next/next/no-img-element */
 
-import ApiCat from './api/ApiCat'
-
-
 export default function Home() {
-
-
 
   return (
     <>
-
     <section className='catconteiner'>
       <div id='' className='catleft'>
       <h1 className='catname'> Login </h1>
