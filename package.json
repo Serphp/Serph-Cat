@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@capacitor/android": "^5.0.1",
+    "@capacitor/cli": "^5.0.1",
+    "@capacitor/core": "^5.0.1",
     "@supabase/auth-helpers-nextjs": "^0.6.1",
     "@supabase/auth-helpers-react": "^0.3.1",
     "@supabase/auth-ui-react": "^0.3.5",

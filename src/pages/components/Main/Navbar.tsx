@@ -1,23 +1,23 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { useRouter } from "next/router";
 import BackIcon from "@/styles/assets/back";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { useUser, useSession } from '@supabase/auth-helpers-react'
-import { supabase } from "@/pages/Superbase";
 import Avatar from "../Avatar";
 import { UserContext } from "@/pages/Context/UserContext";
 
 
 
 const Navbar = () => {
-    const { getAvatarUrl, avatarUrl, setAvatarUrl } = useContext(UserContext)
+    const { getAvatarUrl, avatarUrl } = useContext(UserContext)
     //const currentUser = supabase.auth.user()
     const user = useUser()
     const router = useRouter();
     const { pathname } = router;
     const session = useSession()
-    //const [avatarUrl, setAvatarUrl] = useState(null)
-    const [loading, setLoading] = useState(true)
+
+
 
     useEffect(() => {
         getAvatarUrl()
@@ -40,9 +40,11 @@ const Navbar = () => {
 
             <span>
             {session ? (
-                <Avatar url={avatarUrl} size={30}  />
+                <Avatar url={avatarUrl} size={30} uid={""} onUpload={function (url: string): void {
+                                throw new Error("Function not implemented.");
+                            } }  />
       ) : (
-        <p>No</p>
+        <img src="https://i.imgur.com/30fKpzf.png" className="cat" alt="cat" />
       )}
            
             </span>
