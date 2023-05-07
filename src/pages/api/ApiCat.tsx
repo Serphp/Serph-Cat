@@ -35,10 +35,15 @@ export default function Cat() {
     <>
       <section className='container2'>
 
+      <div className='container'>
+        <button className='itembutton'>Like</button>
+        <button className='itembutton'>Dislike</button>
+      </div>
+
       {cats.map((cat) => (
         
         <div className='indexcontainer' key={cat.id}>
-            <div className='item'>
+            <div className=''>
               <img src={cat.url} alt="cat" width={300} height={200}/>
             </div>
             <div className='itemop'>

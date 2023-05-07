@@ -5,7 +5,7 @@ import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 export const UserContext = createContext();
 
 const UserContextProvider = ({ children }) => {
-    const BaseUrl = process.env.NEXT_PUBLIC_APP_BASE_URL;
+    //const BaseUrl = process.env.NEXT_PUBLIC_APP_BASE_URL;
     const [loading, setLoading] = useState(true)
     const [username, setUsername] = useState(null)
     const [bio, setBio] = useState(null)
@@ -44,7 +44,7 @@ const UserContextProvider = ({ children }) => {
       }
 
     
-    async function getAvatarUrl(userId) {
+    async function getAvatarUrl() {
       try {
         setLoading(true)
         let { data } = await supabase
