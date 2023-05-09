@@ -1,0 +1,75 @@
+
+import Link from "next/link";
+import React, { useState } from "react";
+//import ReactModal from "react-modal";
+
+export default function Stickers() {
+  const [showModal, setShowModal] = useState(true);
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    console.log(showModal)
+  };
+
+  return (
+    <>
+
+        <div className="contenedor">
+
+          
+        <h2> Bienvenido a la sección de Stickers </h2>
+            
+
+          {/* <button onClick={handleOpenModal}>Open Popup</button>
+          {showModal && (
+          <div className="popup">
+          <button onClick={handleCloseModal}>Close Popup</button>
+          <ul>
+          <li>Option 1</li>
+          <li>Option 2</li>
+          <li>Option 3</li>
+          </ul>
+          </div>
+          )} */}
+
+          <div className="catinfo">
+
+            <div className="catinfoitem">
+              <h1 className="catitle"> Stickers 1 </h1>
+                <div className="catdescription">
+                  <Link href="/stickers/pack1">
+                  <button className="catbutton">Ver Pack</button>
+                  </Link>
+                </div>
+            </div>
+          
+          
+            <div className="catinfoitem">
+              <h1 className="catitle"> Stickers 2 </h1>
+              <div className="catdescription">
+                <Link href="/stickers/pack2">
+                <button className="catbutton">Ver Pack</button>
+                </Link>
+              </div>
+            </div>
+
+            <div className="catinfoitem">
+              <h1 className="catitle"> Stickers 3 </h1>
+              <div className="catdescription">
+                <Link href="/stickers/pack3">
+                <button className="catbutton">Ver Pack</button>
+                </Link>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        
+    </>
+  )
+}

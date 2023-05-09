@@ -29,6 +29,7 @@ body {
   --custom-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.8);
   --custom-color: #000000;
   --custom-color-brand: #24b47e;
+  --white: #ffffff7c;
   --custom-color-secondary: #666;
   --custom-border: 1px solid #333;
   --custom-border-radius: 5px;
@@ -62,12 +63,24 @@ h1{
 
 }
 
+h2{ 
+  font-family: "Montserrat",sans-serif;
+  font-weight: 500;
+  font-size: 2.5rem;
+  line-height: 1.5;
+  font-variant: small-caps;
+  //margin-bottom: 1rem;
+  color: var(--white);
+
+}
+
 /* Grid */
 .contenedor {
   display: flex;
+  flex-direction: column;
   margin: 20px;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.083);
+  background-color: rgba(255, 255, 255, 0.04);
   gap: 10px;
   //width: 90%;
 
