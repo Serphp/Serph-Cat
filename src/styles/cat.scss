@@ -1,0 +1,274 @@
+.catconteiner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    height: 80%;
+    //background-color: #f5f5f5;
+    padding: 20px;
+    .catleft {
+        display: flex;
+        flex: 1;
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        justify-content: flex-start;
+        background: url('https://img.freepik.com/free-vector/cute-shiba-inu-dog-sushi-cartoon-icon-illustration_138676-2413.jpg?w=900&t=st=1683218556~exp=1683219156~hmac=648bda97bcf590efb58096f91f1992a14cc582ed69c4f5f620a1ab8a7ea274aa');
+        background-size: cover;
+        width: 50%;
+        height: 50%;
+        padding: 20px;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            box-shadow: 0 0 50px 0 rgba(255, 255, 255, 0.17);
+        }
+    }
+    .catbuttom{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        background: url('https://img.freepik.com/premium-vector/three-little-kittens-cartoon-illustration_241806-629.jpg?w=1380');
+        background-size: cover;
+        width: 100%;
+        height: 50%;
+        padding: 20px;
+        border-radius: 10px;
+        //border: red solid 1px;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            box-shadow: 0 0 50px 0 rgba(255, 255, 255, 0.17);
+        }
+    }
+    .catright {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        background: url('https://img.freepik.com/free-vector/hand-drawn-kawaii-illustration_52683-85164.jpg?w=1060&t=st=1683218436~exp=1683219036~hmac=fe90bce9b6fcedd1b9f2fd5ff5202c213d4f0ffdd132753aa60706160d1427b9');
+        background-size: cover;
+        align-items: flex-start;
+        justify-content: flex-start;
+        border-radius: 10px;
+        width: 50%;
+        height: 50%;
+        padding: 20px;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            box-shadow: 0 0 50px 0 rgba(255, 255, 255, 0.17);
+        }
+        // .catright::after {
+        //     content: "";
+        //     display: block;
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     width: 100%;
+        //     height: 100%;
+        //     box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+        //     opacity: 0;
+        //     transition: opacity .3s ease-in-out;
+        //   }
+          
+        //   .catright:hover::after {
+        //     opacity: 1;
+        //   }
+    }
+}
+
+
+.catinfo {
+    // display: flex;
+    flex-wrap: wrap;
+    display: flex;
+    //flex-direction: column;
+    //flex-basis: calc(50% - 5px);
+    gap: 10px;
+    width: 100%;
+    height: 80%;
+
+
+    .catinfoitem {
+        flex: 1;
+        //width: 50%;
+        //height: 50%;
+        background-color: rgba(240, 248, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(84, 84, 84, 0.5);
+        transition: all 0.3s ease-in-out;
+        @media screen and (max-width: 768px) {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+        }
+        &:hover {
+            transform: scaleY(1.1);
+            box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.17);
+        }
+        
+    }
+    .catinfoitem > div:last-child {
+        flex-basis: calc(50% - 10px);
+    }
+
+}
+
+
+.catitle {
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+
+}
+
+
+
+.catname {
+    font-size: 3rem;
+    font-weight: bold;
+    //color: #00ffaa;
+    margin-bottom: 20px;
+}
+
+.catbutton {
+    background-color: rgb(255, 255, 255);
+    //border: #333 solid 1px;
+    border: none;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.507);
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        background-size: cover;
+        transform: scale(1.1);
+        background-color: rgb(255, 255, 255);
+        color: rgba(0, 0, 0, 0.507);
+        box-shadow: 5px 5px 0px 2px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.container2 {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: #ffffff0a;
+    align-items: flex-start; /* ajusta la alineación vertical de los elementos */
+    .container2 img {
+        flex: 1 1 auto;
+
+        object-fit: contain;
+      }
+  }
+
+
+
+.indexcontainer {
+    //position: relative;
+    //display: flex;
+    //flex-wrap: wrap;
+    //justify-content: space-between;
+    justify-content: center;
+    margin: 10px auto;
+    //border: red solid 1px;
+    max-width: 1200px;
+    // .catitle {
+    //     text-align: center;
+    //     font-size: 2rem;
+    //     font-weight: bold;
+    //     color: #333;
+    //     margin-bottom: 10px;
+    // }
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px 10px 0 0;
+        //border: red solid 1px;
+        transition: all 1s ease-in-out;
+    }
+    &:hover {
+        border-radius: 10px 10px 0 0;
+    }
+  }
+
+  .cat{
+    width: 70px;
+    height: 50px;
+    margin: -10px;
+    padding: -10px;
+    border: red solid 1px;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        transform: scale(2);
+    }
+  }
+
+  .itemspace {
+    margin: 0 20px 0 -20px;
+    //border: red solid 1px;
+    .itemspace, img {
+        //flex: 1 1 calc(33.33% - 10px);
+        
+        margin: 0.5%;
+    }
+  }
+
+.catdescription { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+  
+  .item {
+    //border: red solid 1px;
+    display: flex;
+    flex: 1 1 20%;
+    //border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        transform: scale(1.1);
+    }
+  }
+
+      
+  .itemop {
+
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    justify-content: flex-end;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 0 0 10px 10px;
+    &:hover {
+        //transform: scale(1.1);
+        opacity: 1;
+    }
+    .itembutton {
+        background-color: rgb(255, 255, 255);
+        //border: #333 solid 1px;
+        border: none;
+        font-weight: 700;
+        color: rgba(0, 0, 0, 0.507);
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            background-size: cover;
+            transform: scale(1.1);
+            background-color: rgb(255, 255, 255);
+            color: rgba(0, 0, 0, 0.507);
+            box-shadow: 5px 5px 0px 2px rgba(0, 0, 0, 0.5);
+        }
+    }
+  }
+  
+  .item:last-child {
+    //width: calc(33.33% - 4px);
+    margin: 2px;
+  }
+
