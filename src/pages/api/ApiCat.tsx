@@ -33,12 +33,13 @@ export default function Cat() {
 
   return (
     <>
-      <section className='container2'>
 
-      <div className='container'>
-        <button className='itembutton'>Like</button>
-        <button className='itembutton'>Dislike</button>
-      </div>
+    <div className='contenedor'>
+      <button className='itembutton'>Like</button>
+      <button className='itembutton'>Dislike</button>
+    </div>
+
+      <section className='container2'>
 
       {cats.map((cat) => (
         

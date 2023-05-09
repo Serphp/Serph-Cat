@@ -32,7 +32,9 @@ const Navbar = () => {
 
             <span>
             {session ? (
-                <Avatar url={avatarUrl} size={30} uid={""}  />
+                <Link href='/profile'>
+                    <Avatar url={avatarUrl} size={30} uid={""}  />
+                </Link>
       ) : (
         <img src="https://i.imgur.com/30fKpzf.png" className="cat" alt="cat" width={30} height={30} />
       )}

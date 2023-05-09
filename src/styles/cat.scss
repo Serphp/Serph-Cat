@@ -151,6 +151,9 @@
 .container2 {
     display: flex;
     flex-wrap: wrap;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: #ffffff0a;
     align-items: flex-start; /* ajusta la alineación vertical de los elementos */
     .container2 img {
         flex: 1 1 auto;

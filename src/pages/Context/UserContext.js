@@ -44,25 +44,33 @@ const UserContextProvider = ({ children }) => {
       }
 
     
-    async function getAvatarUrl() {
-      try {
-        setLoading(true)
-        let { data } = await supabase
-          .from('profiles')
-          .select(`username, bio, avatar_url, withcat, fullname`)
-          .eq('id', user.id)
-          .single()
-
-        if (data) {
-          setAvatarUrl(data.avatar_url)
-        }
-      } catch (error) {
-          //alert('Error loading user data!')
-          console.log(error)
-          } finally {
-          setLoading(false)
-          }
+  async function getAvatarUrl() {
+    try {
+      const { data, error } = await supabase
+        .from('profiles')
+        .select('avatar_url')
+        .eq('id', user.id)
+        .single()
+      if (error) {
+        throw error
       }
+      const { avatar_url } = data
+      if (!avatar_url) {
+        return null
+      }
+      const { data: imageData, error: imageError } = await supabase.storage
+        .from('avatars')
+        .download(avatar_url)
+      if (imageError) {
+        throw imageError
+      }
+      const url = URL.createObjectURL(imageData)
+      return url
+    } catch (error) {
+      console.error('Error getting avatar URL:', error)
+      return null
+    }
+  }
 
       const value = {
         loading,
