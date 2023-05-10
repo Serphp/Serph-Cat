@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import BackIcon from "@/styles/assets/back";
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useCallback } from "react";
 import { useSession } from '@supabase/auth-helpers-react'
 import Avatar from "../Avatar";
 import { UserContext } from "@/pages/Context/UserContext";
@@ -12,6 +12,10 @@ const Navbar = () => {
     const router = useRouter();
     const { pathname } = router;
     const session = useSession()
+
+    const goBack = useCallback(() => {
+        router.back();
+        }, [router]);
 
     useEffect(() => {
         getAvatarUrl()
@@ -23,7 +27,7 @@ const Navbar = () => {
             <div className="navcont">
             <span>
                 {
-                    pathname === "/" ? <h1> Serphp </h1> : <Link href="/"> <BackIcon/> </Link>
+                    pathname === "/" ? <h1> Serphp </h1> : <button onClick={goBack}> <BackIcon/> </button>
                 }
             </span>
 

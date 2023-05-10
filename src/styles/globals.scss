@@ -10,6 +10,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  
 }
 
 @media (prefers-color-scheme: dark) {
@@ -34,7 +35,6 @@ body {
   --custom-border: 1px solid #333;
   --custom-border-radius: 5px;
   --custom-spacing: 5px;
-
   //font-family: var(--custom-font-family);
   background-color: var(--custom-bg-color);
 }
@@ -48,8 +48,8 @@ body {
 html,
 body,
 #__next {
-  height: 100vh;
-  width: 100vw;
+  max-width: 1200px;
+  margin: 0 auto;
   overflow-x: hidden;
 }
 
@@ -73,6 +73,60 @@ h2{
   //margin-bottom: 1rem;
   color: var(--white);
 
+}
+
+.boxcat {
+  display: flex;
+  flex-direction: row;
+  //background-color: aliceblue;
+  width: 100%;
+  gap: 10px;
+  .boxitem {
+    width: 50%;
+    //background-color: #f9f9f9;
+    border: red 1px solid;
+    border-radius: 10px;
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    .boxitem {
+      width: 100%;
+    }
+    
+  }
+}
+
+
+.buttoncon {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  .buttont {
+    width: 50%;
+    background-color: #86c7af;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    @media screen and (max-width: 668px) {
+      width: 100%;
+    }
+    &:hover {
+      background-color: #24b47e;
+      opacity: 0.8;
+    }
+  }
+  @media screen and (max-width: 668px) {
+    flex-direction: column;
+  }
 }
 
 /* Grid */

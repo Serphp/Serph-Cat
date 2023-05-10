@@ -4,16 +4,6 @@ import React, { useState } from "react";
 //import ReactModal from "react-modal";
 
 export default function Stickers() {
-  const [showModal, setShowModal] = useState(true);
-
-  const handleOpenModal = () => {
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-    console.log(showModal)
-  };
 
   return (
     <>
@@ -23,18 +13,11 @@ export default function Stickers() {
           
         <h2> Bienvenido a la sección de Stickers </h2>
             
-
-          {/* <button onClick={handleOpenModal}>Open Popup</button>
-          {showModal && (
-          <div className="popup">
-          <button onClick={handleCloseModal}>Close Popup</button>
-          <ul>
-          <li>Option 1</li>
-          <li>Option 2</li>
-          <li>Option 3</li>
-          </ul>
+          <div className="catleft">
+            <Link href="/stickers/maker">
+          <button className="catbutton2"> Create Sticker </button>
+          </Link>
           </div>
-          )} */}
 
           <div className="catinfo">
 
