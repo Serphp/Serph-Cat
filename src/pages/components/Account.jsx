@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 //import UserContext from '../Context/UserContext'
 import Upload from './Upload'
@@ -16,7 +16,8 @@ export default function Account({ session }) {
 
   useEffect(() => {
     getProfile()
-  }, [session])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   async function getProfile() {
     try {
@@ -52,7 +53,7 @@ export default function Account({ session }) {
       setLoading(true)
 
       const updates = {
-        id: user.id,
+        //id: user.id,
         username,
         bio,
         avatar_url,

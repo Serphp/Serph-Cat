@@ -7,11 +7,8 @@ import { useSession } from '@supabase/auth-helpers-react'
 import Avatar from "../Avatar";
 import { UserContext } from "@/pages/Context/UserContext";
 
-
 const Navbar = () => {
-    const { getAvatarUrl, avatarUrl } = useContext(UserContext)
-    //const currentUser = supabase.auth.user()
-    //const user = useUser()
+    const { getAvatarUrl } = useContext(UserContext)
     const router = useRouter();
     const { pathname } = router;
     const session = useSession()
@@ -31,14 +28,13 @@ const Navbar = () => {
             </span>
 
             <span>
-            {session ? (
+                {session ? (
                 <Link href='/profile'>
-                    <Avatar url={avatarUrl} size={30} uid={""}  />
+                <Avatar size={35} uid={session.user.id} />
                 </Link>
-      ) : (
-        <img src="https://i.imgur.com/30fKpzf.png" className="cat" alt="cat" width={30} height={30} />
-      )}
-           
+                ) : (
+                <img src="https://i.imgur.com/30fKpzf.png" className="cat" alt="cat" width={30} height={30} />
+                )}
             </span>
             </div>
         </nav>

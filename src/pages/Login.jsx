@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import { supabase } from './Superbase'
+import { supabase } from './api/Superbase'
 
-export default function Account({ session }) {
+export default function AccountLogin({ session }) {
   const [loading, setLoading] = useState(true)
   const [username, setUsername] = useState(null)
   const [website, setWebsite] = useState(null)
@@ -36,7 +36,7 @@ export default function Account({ session }) {
     event.preventDefault()
 
     setLoading(true)
-    const { user } = session
+    //const { user } = session
 
     const updates = {
       id: user.id,
