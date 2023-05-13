@@ -27,7 +27,7 @@ const Navbar = (): JSX.Element => {
                 <div className="navcont">
                     <span>
                         {
-                            pathname === "/" ? <h1> Serphp </h1> : <button onClick={goBack}> <BackIcon/> </button>
+                            pathname === "/" ? <h1> Serphp </h1> : <span className="back" onClick={goBack}> <BackIcon/> </span>
                         }
                     </span>
 

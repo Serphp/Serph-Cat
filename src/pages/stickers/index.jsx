@@ -31,7 +31,7 @@ export default function Stickers() {
             </div>
           
           
-            <div className="catinfoitem">
+            <div className="catitemc">
               <h1 className="catitle"> Stickers 2 </h1>
               <div className="catdescription">
                 <Link href="/stickers/pack2">

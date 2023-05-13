@@ -4,33 +4,33 @@ import { supabase } from './api/Superbase'
 export default function AccountLogin({ session }) {
   const [loading, setLoading] = useState(true)
   const [username, setUsername] = useState(null)
-  const [website, setWebsite] = useState(null)
+  //const [website, setWebsite] = useState(null)
   const [avatar_url, setAvatarUrl] = useState(null)
+  const user = session.user
+  // useEffect(() => {
+  //   async function getProfile() {
+  //     setLoading(true)
+  //     const { user } = session
 
-  useEffect(() => {
-    async function getProfile() {
-      setLoading(true)
-      const { user } = session
+  //     let { data, error } = await supabase
+  //       .from('profiles')
+  //       .select(`username, website, avatar_url`)
+  //       .eq('id', user.id)
+  //       .single()
 
-      let { data, error } = await supabase
-        .from('profiles')
-        .select(`username, website, avatar_url`)
-        .eq('id', user.id)
-        .single()
+  //     if (error) {
+  //       console.warn(error)
+  //     } else if (data) {
+  //       setUsername(data.username)
+  //       setWebsite(data.website)
+  //       setAvatarUrl(data.avatar_url)
+  //     }
 
-      if (error) {
-        console.warn(error)
-      } else if (data) {
-        setUsername(data.username)
-        setWebsite(data.website)
-        setAvatarUrl(data.avatar_url)
-      }
+  //     setLoading(false)
+  //   }
 
-      setLoading(false)
-    }
-
-    getProfile()
-  }, [session])
+  //   getProfile()
+  // }, [session])
 
   async function updateProfile(event) {
     event.preventDefault()
@@ -39,7 +39,7 @@ export default function AccountLogin({ session }) {
     //const { user } = session
 
     const updates = {
-      id: user.id,
+      id: session.user?.id,
       username,
       website,
       avatar_url,
@@ -70,7 +70,7 @@ export default function AccountLogin({ session }) {
           onChange={(e) => setUsername(e.target.value)}
         />
       </div>
-      <div>
+      {/* <div>
         <label htmlFor="website">Website</label>
         <input
           id="website"
@@ -78,7 +78,7 @@ export default function AccountLogin({ session }) {
           value={website || ''}
           onChange={(e) => setWebsite(e.target.value)}
         />
-      </div>
+      </div> */}
 
       <div>
         <button className="button block primary" type="submit" disabled={loading}>

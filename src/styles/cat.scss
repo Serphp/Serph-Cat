@@ -88,14 +88,14 @@
 
     .catinfoitem {
         flex: 1;
-        //width: 50%;
-        //height: 50%;
         background-color: rgba(240, 248, 255, 0.1);
         padding: 20px;
-        border-radius: 10px;
+        border: dashed #ffffff11;
+        border-width: 2px 5px;
+        border-radius: 50% 50% / 10% 10% 10% 10%;
         box-shadow: 0 0 10px rgba(84, 84, 84, 0.5);
         transition: all 0.3s ease-in-out;
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 668px) {
             display: flex;
             flex-direction: column;
             width: 100%;
@@ -109,6 +109,15 @@
     }
     .catinfoitem > div:last-child {
         flex-basis: calc(50% - 10px);
+    }
+    .catitemc {
+        flex: 1;
+        background-color: rgba(240, 248, 255, 0.1);
+        padding: 20px;
+        border: dashed #ffffff11;
+        border-width: 2px 5px;
+        border-radius: 10% 90% / 100% 100% 100% 100%;
+        box-shadow: 0 0 10px rgba(84, 84, 84, 0.5);
     }
 
 }

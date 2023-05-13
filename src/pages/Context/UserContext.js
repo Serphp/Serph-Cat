@@ -15,37 +15,40 @@ const UserContextProvider = ({ children }) => {
     const [fullname, setFullname ] = useState(null)
     const user = useUser()
 
-      async function getProfile() {
-        try {
-          setLoading(true)
-          let { data, error, status } = await supabase
-            .from('profiles')
-            .select(`username, bio, fullname, avatar_url, withcat`)
-            .eq('id', user.id)
-            .single()
-    
-          if (error && status !== 406) {
-            throw error
-          }
-    
-          if (data) {
-            setUsername(data.username)
-            setBio(data.bio)
-            setFullname(data.fullname)
-            setAvatarUrl(data.avatar_url)
-            setWithcat(data.withcat)
-          }
-        } catch (error) {
-          alert('Error loading user data!')
-          console.log(error)
-        } finally {
-          setLoading(false)
+    async function getProfile() {
+      try {
+        setLoading(true)
+        let { data, error, status } = await supabase
+          .from('profiles')
+          .select(`username, bio, avatar_url, withcat, fullname`)
+          .eq(user.id)
+          .single()
+  
+        if (error && status !== 406) {
+          throw error
         }
+  
+        if (data) {
+          setUsername(data.username)
+          setBio(data.bio)
+          setAvatarUrl(data.avatar_url)
+          setFullname(data.fullname)
+          setWithcat(data.withcat)
+        }
+      } catch (error) {
+        alert('Error loading user data!')
+        console.log(error)
+      } finally {
+        setLoading(false)
       }
+    }
 
     
   async function getAvatarUrl() {
     try {
+      if (!user) {
+        return null
+      }
       const { data, error } = await supabase
         .from('profiles')
         .select('avatar_url')
@@ -71,6 +74,9 @@ const UserContextProvider = ({ children }) => {
       return null
     }
   }
+
+  //console.log(user.email)
+  //console.log(user.id)
 
       const value = {
         loading,
