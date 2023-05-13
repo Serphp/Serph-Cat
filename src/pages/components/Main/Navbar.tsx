@@ -21,6 +21,7 @@ const Navbar = (): JSX.Element => {
         getAvatarUrl();
     }, [getAvatarUrl, session]);
 
+
     return (
         <>
             <nav>
@@ -32,6 +33,7 @@ const Navbar = (): JSX.Element => {
                     </span>
 
                     <span>
+
                         {session ? (
                             <Link href='/profile'>
                                 <Avatar size={35} uid={session.user.id} />
