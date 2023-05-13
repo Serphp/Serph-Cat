@@ -5,7 +5,7 @@ import { Database } from '@/utils/database.types'
 import { UserContext } from '../Context/UserContext'
 type Profiles = Database['public']['Tables']['profiles']['Row']
 
-export default function Avatar({
+export default function AvatarProfile({
   uid,
   size,
 }: {

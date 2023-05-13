@@ -6,16 +6,19 @@ import { Database } from '@/utils/database.types'
 //import Avatar from './Avatar'
 type Profiles = Database['public']['Tables']['profiles']['Row']
 
-export default function Account({ session }: { session: any }) {
+//export default function AccountPage({ session }: { session: any }) {
+const AccountPage = ({ session }: { session: any }) => {  
   const [withcat, setWithcat] = useState<Profiles['withcat']>(null)
   const [fullname, setFullName] = useState<Profiles['fullname']>(null)
 
   const supabase = useSupabaseClient<Database>()
 
   const user = useUser()
+  //const user = session.user
 
   const [loading, setLoading] = useState(true)
   const [username, setUsername] = useState<Profiles['username']>(null)
+  const [email, setEmail] = useState<Profiles['email']>(null)
   const [bio, setBio] = useState<Profiles['bio']>(null)
   const [avatar_url, setAvatarUrl] = useState<Profiles['avatar_url']>(null)
 
@@ -26,8 +29,8 @@ export default function Account({ session }: { session: any }) {
   async function getProfile() {
     try {
       setLoading(true)
-      if (!user) throw new Error('No user')
-      if (!user.id) throw new Error('No user id')
+      if (!user) throw new Error('No cuenta')
+      if (!user.id) throw new Error('No cuenta id')
       
       let { data, error, status } = await supabase
         .from('profiles')
@@ -41,13 +44,14 @@ export default function Account({ session }: { session: any }) {
 
       if (data) {
         setUsername(data.username)
+        //setEmail(data.email)
         setBio(data.bio)
         setAvatarUrl(data.avatar_url)
         setFullName(data.fullname)
         setWithcat(data.withcat)
       }
     } catch (error) {
-      alert('Error loading user data!')
+      alert('Error loading cuenta data!')
       console.log(error)
     } finally {
       setLoading(false)
@@ -56,12 +60,14 @@ export default function Account({ session }: { session: any }) {
 
   async function updateProfile({
     username,
+    email,
     fullname,
     withcat,
     bio,
     avatar_url,
   }: {
     username: Profiles['username']
+    email: Profiles['email']
     fullname: Profiles['fullname']
     withcat: Profiles['withcat']
     bio: Profiles['bio']
@@ -69,11 +75,12 @@ export default function Account({ session }: { session: any }) {
   }) {
     try {
       setLoading(true)
-      if (!user) throw new Error('No user')
+      if (!user) throw new Error('No cuenta')
 
       const updates = {
         id: user.id,
         username,
+        email,
         bio,
         fullname,
         withcat,
@@ -110,7 +117,7 @@ export default function Account({ session }: { session: any }) {
 
       <div>
         <label htmlFor="email">Email</label>
-        <input id="email" type="text" value={session.user.email} disabled />
+        <input id="email" type="text" placeholder={email || ''} disabled />
       </div>
       <div>
         <label htmlFor="username">Username</label>
@@ -155,6 +162,7 @@ export default function Account({ session }: { session: any }) {
           className="button primary block"
           onClick={() => updateProfile({
             username,
+            email,
             fullname,
             withcat,
             bio,
@@ -173,3 +181,5 @@ export default function Account({ session }: { session: any }) {
     </div>
   )
 }
+
+export default AccountPage
