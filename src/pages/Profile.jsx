@@ -3,7 +3,7 @@
 import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
 import { useSession, useSupabaseClient, useUser } from '@supabase/auth-helpers-react'
-import Account from './components/Account'
+import AccountPage from './components/Cuenta'
 
 //import { useState } from 'react'
 
@@ -34,7 +34,7 @@ export default function Profile() {
         </div>
       ) : (
         <>
-          <Account session={session} />
+          <AccountPage session={session} />
         </>
       )}
 </div>

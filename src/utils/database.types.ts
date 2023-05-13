@@ -14,25 +14,31 @@ export interface Database {
           id: string
           updated_at: string | null
           username: string | null
-          full_name: string | null
+          fullname: string | null
           avatar_url: string | null
-          website: string | null
+          withcat: string | null
+          bio: string | null
+          email: string | null
         }
         Insert: {
           id: string
           updated_at?: string | null
           username?: string | null
-          full_name?: string | null
+          fullname?: string | null
           avatar_url?: string | null
-          website?: string | null
+          withcat: string | null
+          bio: string | null
+          email: string | null
         }
         Update: {
           id?: string
           updated_at?: string | null
           username?: string | null
-          full_name?: string | null
+          fullname?: string | null
           avatar_url?: string | null
-          website?: string | null
+          withcat: string | null
+          bio: string | null
+          email: string | null
         }
       }
     }

@@ -1,18 +1,26 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 //import UserContext from '../Context/UserContext'
-import Upload from './Upload'
+//import Upload from './Upload'
+import { Database } from '@/utils/database.types'
+//import Avatar from './Avatar'
+type Profiles = Database['public']['Tables']['profiles']['Row']
 
-export default function Account({ session }) {
-  //const { getProfile } = useContext(UserContext)
-  const supabase = useSupabaseClient()
+//export default function AccountPage({ session }: { session: any }) {
+const AccountPage = ({ session }: { session: any }) => {  
+  const [withcat, setWithcat] = useState<Profiles['withcat']>(null)
+  const [fullname, setFullName] = useState<Profiles['fullname']>(null)
+
+  const supabase = useSupabaseClient<Database>()
+
   const user = useUser()
+  //const user = session.user
+
   const [loading, setLoading] = useState(true)
-  const [username, setUsername] = useState(null)
-  const [bio, setBio] = useState(null)
-  const [avatar_url, setAvatarUrl] = useState(null)
-  const [withcat, setWithcat] = useState(false)
-  const [fullname, setFullName] = useState(null)
+  const [username, setUsername] = useState<Profiles['username']>(null)
+  const [email, setEmail] = useState<Profiles['email']>(null)
+  const [bio, setBio] = useState<Profiles['bio']>(null)
+  const [avatar_url, setAvatarUrl] = useState<Profiles['avatar_url']>(null)
 
   useEffect(() => {
     getProfile()
@@ -21,9 +29,12 @@ export default function Account({ session }) {
   async function getProfile() {
     try {
       setLoading(true)
+      if (!user) throw new Error('No cuenta')
+      if (!user.id) throw new Error('No cuenta id')
+      
       let { data, error, status } = await supabase
         .from('profiles')
-        .select(`username, bio, avatar_url, withcat, fullname`)
+        .select(`username, bio, avatar_url, fullname, withcat, fullname`)
         .eq('id', user.id)
         .single()
 
@@ -33,33 +44,50 @@ export default function Account({ session }) {
 
       if (data) {
         setUsername(data.username)
+        //setEmail(data.email)
         setBio(data.bio)
         setAvatarUrl(data.avatar_url)
         setFullName(data.fullname)
         setWithcat(data.withcat)
       }
     } catch (error) {
-      alert('Error loading user data!')
+      alert('Error loading cuenta data!')
       console.log(error)
     } finally {
       setLoading(false)
     }
   }
 
-
-  async function updateProfile({ username, bio, avatar_url }) {
+  async function updateProfile({
+    username,
+    email,
+    fullname,
+    withcat,
+    bio,
+    avatar_url,
+  }: {
+    username: Profiles['username']
+    email: Profiles['email']
+    fullname: Profiles['fullname']
+    withcat: Profiles['withcat']
+    bio: Profiles['bio']
+    avatar_url: Profiles['avatar_url']
+  }) {
     try {
       setLoading(true)
+      if (!user) throw new Error('No cuenta')
 
       const updates = {
         id: user.id,
         username,
+        email,
         bio,
-        avatar_url,
         fullname,
         withcat,
+        avatar_url,
         updated_at: new Date().toISOString(),
       }
+
       let { error } = await supabase.from('profiles').upsert(updates)
       if (error) throw error
       alert('Profile updated!')
@@ -71,23 +99,25 @@ export default function Account({ session }) {
     }
   }
 
+  console.log(user)
+
   return (
     <div className="form-widget">
       <h1>Actualizar Perfil</h1>
 
-      <Upload
-      uid={user.id}
+      {/* <Upload
+      uid={session.user.id}
       url={avatar_url}
       size={150}
       onUpload={(url) => {
         setAvatarUrl(url)
         updateProfile({ username, bio, avatar_url: url })
       }}
-    />
+    /> */}
 
       <div>
         <label htmlFor="email">Email</label>
-        <input id="email" type="text" value={session.user.email} disabled />
+        <input id="email" type="text" placeholder={email || ''} disabled />
       </div>
       <div>
         <label htmlFor="username">Username</label>
@@ -130,7 +160,13 @@ export default function Account({ session }) {
       <div>
         <button
           className="button primary block"
-          onClick={() => updateProfile({ username, bio, avatar_url, withcat, fullname })}
+          onClick={() => updateProfile({
+            username,
+            email,
+            fullname,
+            withcat,
+            bio,
+            avatar_url })}
           disabled={loading}
         >
           {loading ? 'Loading ...' : 'Update'}
@@ -145,3 +181,5 @@ export default function Account({ session }) {
     </div>
   )
 }
+
+export default AccountPage

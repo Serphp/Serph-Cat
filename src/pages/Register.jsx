@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { supabase } from './Superbase';
+import { supabase } from './api/Superbase';
 //import {UserContext} from './Context/UserContext';
 
 export default function Register() {
