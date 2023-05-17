@@ -28,7 +28,7 @@ const Navbar = (): JSX.Element => {
                 <div className="navcont">
                     <span>
                         {
-                            pathname === "/" ? <h1> Serphp </h1> : <span className="back" onClick={goBack}> <BackIcon/> </span>
+                            pathname === "/" ? <h2> Stickers</h2> : <span className="back" onClick={goBack}> <BackIcon/> </span>
                         }
                     </span>
 
@@ -39,7 +39,7 @@ const Navbar = (): JSX.Element => {
                                 <Avatar size={35} uid={session.user.id} />
                             </Link>
                         ) : (
-                            <img src="https://i.imgur.com/30fKpzf.png" className="cat" alt="cat" width={30} height={30} />
+                            null
                         )}
                     </span>
                 </div>

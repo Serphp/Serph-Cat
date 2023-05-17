@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 //import UserContext from '../Context/UserContext'
-//import Upload from './Upload'
+import Upload from './Upload'
 import { Database } from '@/utils/database.types'
 //import Avatar from './Avatar'
 type Profiles = Database['public']['Tables']['profiles']['Row']
@@ -60,14 +60,14 @@ const AccountPage = ({ session }: { session: any }) => {
 
   async function updateProfile({
     username,
-    email,
+    //email,
     fullname,
     withcat,
     bio,
     avatar_url,
   }: {
     username: Profiles['username']
-    email: Profiles['email']
+    //email: Profiles['email']
     fullname: Profiles['fullname']
     withcat: Profiles['withcat']
     bio: Profiles['bio']
@@ -105,7 +105,7 @@ const AccountPage = ({ session }: { session: any }) => {
     <div className="form-widget">
       <h1>Actualizar Perfil</h1>
 
-      {/* <Upload
+      <Upload
       uid={session.user.id}
       url={avatar_url}
       size={150}
@@ -113,7 +113,7 @@ const AccountPage = ({ session }: { session: any }) => {
         setAvatarUrl(url)
         updateProfile({ username, bio, avatar_url: url })
       }}
-    /> */}
+    />
 
       <div>
         <label htmlFor="email">Email</label>
@@ -162,7 +162,6 @@ const AccountPage = ({ session }: { session: any }) => {
           className="button primary block"
           onClick={() => updateProfile({
             username,
-            email,
             fullname,
             withcat,
             bio,

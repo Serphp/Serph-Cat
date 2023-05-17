@@ -24,7 +24,7 @@ export default function Register() {
   return (
     <div className="row flex flex-center">
       <div className="col-6 form-widget">
-        <h1 className="header">Supabase + React</h1>
+        <h1 className="header">Serph cat</h1>
         <p className="description">Sign in via magic link with your email below</p>
         <form className="form-widget" onSubmit={handleLogin}>
           <div>
@@ -47,25 +47,3 @@ export default function Register() {
     </div>
   )
 }
-
-//   const { handleRegister, name, setAge, age, setLastName, lastName, setName, } = useContext(UserContext);
-
-
-//   return (
-//     <form onSubmit={handleRegister}>
-//       <label>
-//         Name:
-//         <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
-//       </label>
-//       <label>
-//         Last Name:
-//         <input type="text" value={lastName} onChange={(event) => setLastName(event.target.value)} />
-//       </label>
-//       <label>
-//         Age:
-//         <input type="text" value={age} onChange={(event) => setAge(event.target.value)} />
-//       </label>
-//       <button type="submit">Add User</button>
-//     </form>
-//   );
-// }
