@@ -5,6 +5,7 @@ import Upload from './Upload'
 import { Database } from '@/utils/database.types'
 //import Avatar from './Avatar'
 type Profiles = Database['public']['Tables']['profiles']['Row']
+type email = ['email']
 
 //export default function AccountPage({ session }: { session: any }) {
 const AccountPage = ({ session }: { session: any }) => {  
@@ -14,7 +15,7 @@ const AccountPage = ({ session }: { session: any }) => {
   const supabase = useSupabaseClient<Database>()
 
   const user = useUser()
-  //const user = session.user
+
 
   const [loading, setLoading] = useState(true)
   const [username, setUsername] = useState<Profiles['username']>(null)
@@ -24,6 +25,7 @@ const AccountPage = ({ session }: { session: any }) => {
 
   useEffect(() => {
     getProfile()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session])
 
   async function getProfile() {
@@ -34,7 +36,7 @@ const AccountPage = ({ session }: { session: any }) => {
       
       let { data, error, status } = await supabase
         .from('profiles')
-        .select(`username, bio, avatar_url, fullname, withcat, fullname`)
+        .select(`username, fullname, email, bio, avatar_url, withcat`)
         .eq('id', user.id)
         .single()
 
@@ -44,7 +46,7 @@ const AccountPage = ({ session }: { session: any }) => {
 
       if (data) {
         setUsername(data.username)
-        //setEmail(data.email)
+        setEmail(data.email)
         setBio(data.bio)
         setAvatarUrl(data.avatar_url)
         setFullName(data.fullname)
@@ -58,66 +60,64 @@ const AccountPage = ({ session }: { session: any }) => {
     }
   }
 
-  async function updateProfile({
-    username,
-    //email,
-    fullname,
-    withcat,
-    bio,
-    avatar_url,
-  }: {
-    username: Profiles['username']
-    //email: Profiles['email']
-    fullname: Profiles['fullname']
-    withcat: Profiles['withcat']
-    bio: Profiles['bio']
-    avatar_url: Profiles['avatar_url']
-  }) {
-    try {
-      setLoading(true)
-      if (!user) throw new Error('No cuenta')
+  async function updateProfile({ username, fullname, withcat, bio,avatar_url,
+    } : {
+      username: Profiles['username']
+      //email: Profiles['email']
+      fullname: Profiles['fullname']
+      withcat: Profiles['withcat']
+      bio: Profiles['bio']
+      avatar_url: Profiles['avatar_url']
+    }) {
+        try {
+          setLoading(true)
+          if (!user) throw new Error('No cuenta')
+          const updates = {
+            id: user.id,
+            username,
+            fullname,
+            withcat,
+            bio,
+            avatar_url,
+            updated_at: new Date().toISOString(),
+          }
 
-      const updates = {
-        id: user.id,
-        username,
-        email,
-        bio,
-        fullname,
-        withcat,
-        avatar_url,
-        updated_at: new Date().toISOString(),
-      }
-
-      let { error } = await supabase.from('profiles').upsert(updates)
-      if (error) throw error
-      alert('Profile updated!')
-    } catch (error) {
-      alert('Error updating the data!')
-      console.log(error)
-    } finally {
-      setLoading(false)
+          let { error } = await supabase.from('profiles').upsert(updates)
+          if (error) throw error
+          alert('Profile updated!')
+        } catch (error) {
+          alert('Error updating the data!')
+          console.log(error)
+        } finally {
+          setLoading(false)
+        }
     }
-  }
 
-  console.log(user)
+  //console.log(user)
 
   return (
     <div className="form-widget">
       <h1>Actualizar Perfil</h1>
 
-      <Upload
-      uid={session.user.id}
-      url={avatar_url}
-      size={150}
-      onUpload={(url) => {
-        setAvatarUrl(url)
-        updateProfile({ username, bio, avatar_url: url })
-      }}
-    />
+        <Upload
+        uid={user?.id}
+        url={avatar_url}
+        size={150}
+        onUpload={(url: any) => {
+          setAvatarUrl(url)
+          updateProfile({ 
+            username,
+            fullname,
+            withcat,
+            bio,
+            avatar_url,
+           })
+        }}
+        />
 
       <div>
-        <label htmlFor="email">Email</label>
-        <input id="email" type="text" placeholder={email || ''} disabled />
+        <label htmlFor="email"> {email || null} </label>
+        {/* <input id="email" type="text" placeholder={email || ''} disabled /> */}
       </div>
       <div>
         <label htmlFor="username">Username</label>
