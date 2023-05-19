@@ -5,9 +5,7 @@ import Upload from './Upload'
 import { Database } from '@/utils/database.types'
 //import Avatar from './Avatar'
 type Profiles = Database['public']['Tables']['profiles']['Row']
-type email = ['email']
 
-//export default function AccountPage({ session }: { session: any }) {
 const AccountPage = ({ session }: { session: any }) => {  
   const [withcat, setWithcat] = useState<Profiles['withcat']>(null)
   const [fullname, setFullName] = useState<Profiles['fullname']>(null)
@@ -20,7 +18,6 @@ const AccountPage = ({ session }: { session: any }) => {
 
   const [loading, setLoading] = useState(true)
   const [username, setUsername] = useState<Profiles['username']>(null)
-  //const [email, setEmail] = useState<Profiles['email']>(null)
   const [bio, setBio] = useState<Profiles['bio']>(null)
   const [avatar_url, setAvatarUrl] = useState<Profiles['avatar_url']>(null)
 
@@ -64,7 +61,6 @@ const AccountPage = ({ session }: { session: any }) => {
   async function updateProfile({ username, fullname, withcat, bio,avatar_url,
     } : {
       username: Profiles['username']
-      //email: Profiles['email']
       fullname: Profiles['fullname']
       withcat: Profiles['withcat']
       bio: Profiles['bio']
@@ -117,8 +113,7 @@ const AccountPage = ({ session }: { session: any }) => {
         />
 
       <div>
-        <label> {sessionUser.email || null} </label>
-        {/* <input id="email" type="text" placeholder={email || ''} disabled /> */}
+        <label> {sessionUser?.email || null} </label>
       </div>
       <div>
         <label htmlFor="username">Username</label>
