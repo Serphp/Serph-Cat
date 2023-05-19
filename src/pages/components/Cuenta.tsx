@@ -15,11 +15,12 @@ const AccountPage = ({ session }: { session: any }) => {
   const supabase = useSupabaseClient<Database>()
 
   const user = useUser()
+  const sessionUser = session?.user
 
 
   const [loading, setLoading] = useState(true)
   const [username, setUsername] = useState<Profiles['username']>(null)
-  const [email, setEmail] = useState<Profiles['email']>(null)
+  //const [email, setEmail] = useState<Profiles['email']>(null)
   const [bio, setBio] = useState<Profiles['bio']>(null)
   const [avatar_url, setAvatarUrl] = useState<Profiles['avatar_url']>(null)
 
@@ -36,7 +37,7 @@ const AccountPage = ({ session }: { session: any }) => {
       
       let { data, error, status } = await supabase
         .from('profiles')
-        .select(`username, fullname, email, bio, avatar_url, withcat`)
+        .select(`username, fullname, bio, avatar_url, withcat`)
         .eq('id', user.id)
         .single()
 
@@ -46,7 +47,6 @@ const AccountPage = ({ session }: { session: any }) => {
 
       if (data) {
         setUsername(data.username)
-        setEmail(data.email)
         setBio(data.bio)
         setAvatarUrl(data.avatar_url)
         setFullName(data.fullname)
@@ -59,6 +59,7 @@ const AccountPage = ({ session }: { session: any }) => {
       setLoading(false)
     }
   }
+
 
   async function updateProfile({ username, fullname, withcat, bio,avatar_url,
     } : {
@@ -116,7 +117,7 @@ const AccountPage = ({ session }: { session: any }) => {
         />
 
       <div>
-        <label htmlFor="email"> {email || null} </label>
+        <label> {sessionUser.email || null} </label>
         {/* <input id="email" type="text" placeholder={email || ''} disabled /> */}
       </div>
       <div>

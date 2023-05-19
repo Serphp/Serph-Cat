@@ -18,7 +18,7 @@ export interface Database {
           avatar_url: string | null
           withcat: string | null
           bio: string | null
-          email: string | null
+
         }
         Insert: {
           id: string
@@ -28,7 +28,7 @@ export interface Database {
           avatar_url?: string | null
           withcat: string | null
           bio: string | null
-          //email: string | null
+
         }
         Update: {
           id?: string
@@ -38,7 +38,7 @@ export interface Database {
           avatar_url?: string | null
           withcat: string | null
           bio: string | null
-          //email: string | null
+
         }
       }
     }
