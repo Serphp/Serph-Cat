@@ -39,17 +39,51 @@ export default function Stickers() {
             <div className="catinfoitem">
               <h1 className="catitle"> Stickers 1 </h1>
                 <div className="catdescription">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  <br />
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </div>
+                <div className="cat-contenedor-button">
                   <Link href="/stickers/pack1">
-                  <button className="catbutton">Ver Pack</button>
+                    <button className="catbutton">Ver Pack</button>
                   </Link>
                 </div>
             </div>
           
           
-            <div className="catitemc">
+            <div className="catinfoitem">
               <h1 className="catitle"> Stickers 2 </h1>
               <div className="catdescription">
                 <Link href="/stickers/pack2">
+                <button className="catbutton">Ver Pack</button>
+                </Link>
+              </div>
+            </div>
+
+            <div className="catinfoitem">
+              <h1 className="catitle"> Stickers 3 </h1>
+              <div className="catdescription">
+                <Link href="/stickers/pack3">
+                <button className="catbutton">Ver Pack</button>
+                </Link>
+              </div>
+            </div>
+
+            <div className="catinfoitem">
+              <h1 className="catitle"> Stickers 3 </h1>
+              <div className="catdescription">
+                <Link href="/stickers/pack3">
+                <button className="catbutton">Ver Pack</button>
+                </Link>
+              </div>
+            </div>
+
+            <div className="catinfoitem">
+              <h1 className="catitle"> Stickers 3 </h1>
+              <div className="catdescription">
+                <Link href="/stickers/pack3">
                 <button className="catbutton">Ver Pack</button>
                 </Link>
               </div>

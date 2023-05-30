@@ -105,11 +105,8 @@ $opacitycard: 0.9;
 }
 
 .catinfo {
-    // display: flex;
-    flex-wrap: wrap;
     display: flex;
-    //flex-direction: column;
-    //flex-basis: calc(50% - 5px);
+    flex-wrap: wrap;
     gap: 10px;
     width: 100%;
     height: 80%;
@@ -120,7 +117,6 @@ $opacitycard: 0.9;
         padding: 20px;
         border: dashed #ffffff11;
         border-width: 2px 5px;
-        border-radius: 50% 50% / 10% 10% 10% 10%;
         box-shadow: 0 0 10px rgba(84, 84, 84, 0.5);
         transition: all 0.3s ease-in-out;
         @media screen and (max-width: 668px) {
@@ -147,22 +143,28 @@ $opacitycard: 0.9;
         border-radius: 10% 90% / 100% 100% 100% 100%;
         box-shadow: 0 0 10px rgba(84, 84, 84, 0.5);
     }
-
+    .cat-contenedor-button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 
-.catleft {
+.catleftx {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    gap: 15px;
     transition: all 0.3s ease-in-out;
 }
 
 .catbutton2 {
     background-color: rgb(255, 255, 255);
-    //border: #333 solid 1px;
     border: none;
     font-weight: 700;
+    margin: 10px 0 20px 0;
     color: rgba(0, 0, 0, 0.507);
     transition: all 0.3s ease-in-out;
     &:hover {
@@ -241,7 +243,8 @@ $opacitycard: 0.9;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 20px;
+    text-align: justify;
+    margin: 10px;
 }
   
   .item {

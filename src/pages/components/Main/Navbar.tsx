@@ -10,7 +10,7 @@ import { UserContext } from "@/pages/Context/UserContext";
 const Navbar = (): JSX.Element => {
 
     const supabase = useSupabaseClient();
-    console.log(supabase)
+    //console.log(supabase)
     const { getAvatarUrl } = useContext(UserContext);
     const router = useRouter();
     const { pathname } = router;

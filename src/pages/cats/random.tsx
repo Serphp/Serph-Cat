@@ -1,4 +1,4 @@
-import ApiCat from './api/ApiCat'
+import ApiCat from '../api/ApiCat'
 
 export default function Home() {
 

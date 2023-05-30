@@ -79,16 +79,31 @@ body,
   overflow-x: hidden;
 }
 
-.logotitle {
+.title {
+  position: relative;
+  top: 0%;
+  left: 26%;
+  
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  font-size: 2rem;
+  justify-content: center;
+  align-items: center;
+
+
+  margin-top: 5px;
+  font-size: 3rem;
   font-weight: bold;
-  text-align: left !important;
-  color: #e66610 !important;
+  width: 50%;
+  border-bottom: #181918 solid 1px;
+  text-align: center !important;
+  color: #ffffff !important;
 }
 
+.catindex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .catsub {
   display: flex;
   flex-direction: row;
