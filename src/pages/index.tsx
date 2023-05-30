@@ -1,17 +1,31 @@
-/* eslint-disable @next/next/no-html-link-for-pages */
-/* eslint-disable @next/next/no-img-element */
-
+import { useSession } from "@supabase/auth-helpers-react";
 import Link from "next/link";
 
 export default function Home() {
 
+  const session = useSession();
+  //const { user } = session;
+
+  console.log(session)
   return (
     <>
     <section className='catconteiner'>
 
       <div id='' className='catleft'>
-      <h1 className='catname'> Login </h1>
-      <button className='catbutton'><Link href='/Profile'> Entrar </Link></button>
+      {/* <button className='catbutton'><Link href='/Profile'> Entrar </Link></button> */}
+      {
+        session ? (
+          <>
+          <h1 className='catname'> Welcome </h1>
+          <h2 className='catsub'> {session.user.email} </h2>
+          </>
+        ) : (
+          <>
+          <h1 className='catname'> Login </h1>
+          <button className='catbutton'><Link href='/Profile'> Entrar </Link></button>
+          </>
+        )
+      }
       </div>
       <div className='catright'>
         <h1 className='catname'> Los michitos </h1>
@@ -34,7 +48,7 @@ export default function Home() {
             <h2 className='catsub'>
             Serphp Cat es una aplicación web que te permite crear stickers para whatsapp de tus gatos favoritos.
             </h2>
-            <h3 className='cattitle'> Serphp Cat </h3>
+           
           </div> 
 
       {/* <button className='catbutton'><Link href='/Profile'> Entrar </Link></button> */}

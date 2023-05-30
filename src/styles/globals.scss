@@ -32,7 +32,7 @@ body {
   background-position: center;
   background-attachment: fixed;
   
-  
+
   --custom-panel-color: #222;
   --custom-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.8);
   --custom-color: #ffffff82;
@@ -58,6 +58,16 @@ body,
   max-width: 1200px;
   margin: 0 auto;
   overflow-x: hidden;
+}
+
+.logotitle {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: left !important;
+  color: #e66610 !important;
 }
 
 .catsub {
@@ -92,7 +102,8 @@ h1{
   font-weight: 700;
   font-size: 2.5rem;
   line-height: 1.2;
-  color: var(--custom-color-brand);
+  color: #8a7359;
+  text-shadow: 2px 2px 0px #0000007c;
 }
 
 h2{ 
@@ -172,12 +183,21 @@ h2{
 
 
 /* Grid */
+.container2 {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  border-radius: 10px;
+  background-color: #a28c75d2;
+  align-items: flex-start; /* ajusta la alineación vertical de los elementos */
+}
+
 .contenedor {
   display: flex;
   flex-direction: column;
   margin: 20px;
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.049);
+  background-color: #a28c75d2;
   gap: 10px;
   //width: 90%;
   padding: 20px;

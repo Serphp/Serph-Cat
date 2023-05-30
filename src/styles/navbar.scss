@@ -1,14 +1,18 @@
 nav {
     width: 100%;
-    position: relative;
-
+    //position: relative;
     padding: 0 20px;
-    top: 0;
-
+    //top: 0;
 
     .search-container {
-        position: relative;
-        z-index: 1000;
+        // position: block;
+        // z-index: 1000;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+
         input {
             width: 90%;
             //padding: 10px;
@@ -45,29 +49,65 @@ nav {
 
       .search-user {
         display: flex;
-        flex-direction: row;
         gap: 10px;
-        align-items: flex-end;
-        justify-content: flex-end;
-        // width: 100%;
-        // position: absolute;
-        // top: 20px;
-        // left: 95%;
-        // transform: translateY(-50%);
+        margin: 5px;
       }
 
       .back {
-        position: absolute;
-        top: -15px;
-        left: 470px;
         display: flex;
-        flex-direction: row;
-        width: 50px;
+        justify-content: flex-end;
+        align-items: flex-end;
+        margin: 10px;
         opacity: 0.5;
         cursor: pointer;
         transition: all 0.3s ease-in-out;
         &:hover {
+          transform: scale(1.1);
           opacity: 1;
+        }
+      }
+
+      .avatar {
+        width: 50px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+      
+      .signout {
+        opacity: 0.5;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          transform: scale(1.1);
+          opacity: 1;
+        }
+      }
+
+      .profile {
+        display: flex;
+        gap: 10px;
+        opacity: 0.5;
+        color: #fafafa8d;
+        //font-size: 1rem;
+        font-weight: bold;
+        //background-color: #e4decc7a;
+        padding: 10px;
+        border-radius: 10px;
+        align-items: center;
+        justify-content: center;
+        margin: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          opacity: 1;
+          transform: scale(1.1);
+          //color: #000000;
         }
       }
 
@@ -105,8 +145,8 @@ nav {
         width: 100%;
         border-radius: 0 0 10px 10px;
         padding: 10px;
-        background-color: #e7ecef64;
-        backdrop-filter: saturate(180%) blur(5px);
+        background-color: #a28c75;
+        //backdrop-filter: saturate(180%) blur(5px);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
     h1 {

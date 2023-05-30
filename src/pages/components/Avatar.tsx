@@ -29,7 +29,7 @@ export default function AvatarProfile({
         <img
           src={avatarUrl}
           alt="Avatar"
-          className="avatar image"
+          className="avatar"
           style={{ height: size, width: size }}
         />
       ) : (

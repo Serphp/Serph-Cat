@@ -13,7 +13,7 @@ $opacitycard: 0.9;
         flex-direction: column-reverse;
         align-items: flex-end;
         justify-content: flex-start;
-        background: url('https://img.freepik.com/free-vector/cute-shiba-inu-dog-sushi-cartoon-icon-illustration_138676-2413.jpg?w=900&t=st=1683218556~exp=1683219156~hmac=648bda97bcf590efb58096f91f1992a14cc582ed69c4f5f620a1ab8a7ea274aa');
+        background: url('../styles/assets/indexcat.svg');
         background-size: cover;
         width: 50%;
         height: 400px;
@@ -87,7 +87,7 @@ $opacitycard: 0.9;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        background: url('https://pbs.twimg.com/media/FE8sAMqaMAAu9vW.jpg');
+        background: url('../styles/assets/largecat.svg');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -189,18 +189,6 @@ $opacitycard: 0.9;
         box-shadow: 5px 5px 0px 2px rgba(0, 0, 0, 0.5);
     }
 }
-
-.container2 {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 20px;
-    border-radius: 10px;
-    background-color: #ffffff0a;
-    align-items: flex-start; /* ajusta la alineación vertical de los elementos */
-
-  }
-
-
 
 .indexcontainer {
     margin: 10px auto;

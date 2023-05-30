@@ -10,6 +10,7 @@ export default function Maker({ onUpload }: Props): JSX.Element {
   const [uploading, setUploading] = useState(false)
   const [fileName, setFileName] = useState('')
   const [url, setUrl] = useState<string>('');
+  const [file, setFile] = useState<File | null>(null)
 
   const handleFileNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFileName(event.target.value)
@@ -20,7 +21,7 @@ export default function Maker({ onUpload }: Props): JSX.Element {
 
         .from('cats')
         .download(filePath)
-        
+
         //.getPublicUrl(filePath)
 
         // .then((res: { data: { publicURL: SetStateAction<string> } }) => {
@@ -68,7 +69,10 @@ export default function Maker({ onUpload }: Props): JSX.Element {
         throw uploadError
       }
 
-      onUpload2(filePath)
+      onUpload2(filePath, fileUrl => {
+        setUrl(fileUrl)
+      })
+
     } catch (error) {
       alert('Error uploading sticker!')
       console.log(error)
