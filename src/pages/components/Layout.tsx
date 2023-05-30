@@ -11,6 +11,7 @@ export default function Layout({ children }: LayoutProps){
     return (
     <>
         <Navbar />
+        {/* <div className='mb-12'></div> */}
             {children}
         {/* <Footer /> */}
     </>

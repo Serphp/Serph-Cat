@@ -23,11 +23,16 @@
 
 html,
 body {
-  // --custom-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
-  //   Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  //--custom-bg-color: #2f353a;
-  --custom-bg-color: #1f1f1e;
+  --custom-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
+  background-image: url('../styles//assets/backgroundcat.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  
+  
   --custom-panel-color: #222;
   --custom-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.8);
   --custom-color: #ffffff82;
@@ -55,28 +60,62 @@ body,
   overflow-x: hidden;
 }
 
+.catsub {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: left !important;
+  color: #383737aa !important;
+}
+
+.cattitle{
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e66610 !important;
+}
+
+.catitle {
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.catname {
+  font-size: 3rem;
+  font-weight: bold;
+  //color: #00ffaa;
+}
+
 h1{ 
   font-family: "Montserrat",sans-serif;
   font-weight: 700;
   font-size: 2.5rem;
   line-height: 1.2;
-  //margin-bottom: 1rem;
   color: var(--custom-color-brand);
-
 }
 
 h2{ 
   font-family: "Montserrat",sans-serif;
   text-align: center;
   font-weight: 700;
-  font-size: 2.3rem;
-  line-height: 1.5;
-  //font-variant: small-caps;
-  //margin-bottom: 1rem;
+
+  //line-height: 1.5;
   color: var(--white);
 
 }
 
+.imgbox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  .imgitem {
+    flex: 1;
+    border: red 5px solid;
+    border-radius: 10px;
+  }
+
+}
 .boxcat {
   display: flex;
   flex-direction: row;
@@ -85,8 +124,7 @@ h2{
   gap: 10px;
   .boxitem {
     width: 50%;
-    //background-color: #f9f9f9;
-    border: red 1px solid;
+    //border: red 1px solid;
     border-radius: 10px;
     img {
       width: 100%;
@@ -131,18 +169,7 @@ h2{
   }
 }
 
-.back {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  padding: 5px;
-  opacity: 0.5;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  &:hover {
-    opacity: 1;
-  }
-}
+
 
 /* Grid */
 .contenedor {

@@ -34,9 +34,9 @@ export default function Cat() {
   return (
     <>
 
-    <div className='contenedor'>
-      <button className='itembutton'>Like</button>
-      <button className='itembutton'>Dislike</button>
+
+    <div className='container2'>
+      <button className=''> Play </button>
     </div>
 
       <section className='container2'>
@@ -44,13 +44,14 @@ export default function Cat() {
       {cats.map((cat) => (
         
         <div className='indexcontainer' key={cat.id}>
-            <div className=''>
-              <img src={cat.url} alt="cat" width={300} height={200}/>
-            </div>
-            <div className='itemop'>
+            <h2 className='texto-frente'>
+            {cat.id}
+            </h2>
+            <img src={cat.url} alt="cat" width={300} height={200}/>
+            {/* <div className='itemop'>
               <button className='itembutton'>Like</button>
               <button className='itembutton'>Dislike</button>
-            </div>
+            </div> */}
         </div>
 
       ))}

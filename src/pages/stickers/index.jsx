@@ -1,9 +1,17 @@
 
+import { useSession, useUser } from "@supabase/auth-helpers-react";
 import Link from "next/link";
 import React, { useState } from "react";
 //import ReactModal from "react-modal";
 
+
+
 export default function Stickers() {
+  
+  const sessionUser = useSession();
+  const user = useUser();
+  
+  console.log(user);
 
   return (
     <>
@@ -13,11 +21,18 @@ export default function Stickers() {
           
         <h2> Bienvenido a la sección de Stickers </h2>
             
-          <div className="catleft">
-            <Link href="/stickers/maker">
-          <button className="catbutton2"> Create Sticker </button>
-          </Link>
-          </div>
+            {
+              sessionUser && (
+              <>
+              <div className="catleft">
+              <Link href="/stickers/maker">
+              <button className="catbutton2"> Create Sticker </button>
+              </Link>
+              </div>
+              </>
+              )
+            }
+
 
           <div className="catinfo">
 

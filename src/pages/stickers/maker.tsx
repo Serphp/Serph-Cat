@@ -1,5 +1,5 @@
 import { useSupabaseClient } from '@supabase/auth-helpers-react'
-import { useState } from 'react'
+import { SetStateAction, useEffect, useState } from 'react'
 
 type Props = {
   onUpload: (filePath: string) => void
@@ -9,10 +9,34 @@ export default function Maker({ onUpload }: Props): JSX.Element {
   const supabase = useSupabaseClient()
   const [uploading, setUploading] = useState(false)
   const [fileName, setFileName] = useState('')
+  const [url, setUrl] = useState<string>('');
 
   const handleFileNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFileName(event.target.value)
     }
+
+    const onUpload2 = async (filePath: string, callback: (url: string) => void) => {
+      const { data, error } = await supabase.storage
+
+        .from('cats')
+        .download(filePath)
+        
+        //.getPublicUrl(filePath)
+
+        // .then((res: { data: { publicURL: SetStateAction<string> } }) => {
+        //   console.log(res)
+        //   setUrl(res.data.publicURL)
+        // })
+        
+      if (error) {
+        throw error
+      }
+      const url = URL.createObjectURL(data)
+      callback(url) // Llamar a la función de callback y pasarle la URL
+      console.log(filePath)
+    }
+
+
 
     //POST https://azdltemsflxeuruxexmi.supabase.co/storage/v1/object/cats/Zoro.jpg 400
     
@@ -37,24 +61,41 @@ export default function Maker({ onUpload }: Props): JSX.Element {
 
       let { error: uploadError } = await supabase.storage
         .from('cats')
-        //.upload(filePath, file)
-        .upload(filePath, file, { upsert: true })
+        .upload(filePath, file)
+        //.upload(filePath, file, { upsert: true })
 
       if (uploadError) {
         throw uploadError
       }
 
-      onUpload(filePath)
+      onUpload2(filePath)
     } catch (error) {
       alert('Error uploading sticker!')
       console.log(error)
     } finally {
+      alert('Sticker uploaded successfully!')
       setUploading(false)
     }
   }
 
+
   return (
     <>
+
+    {
+      url && (
+        <div className="contenedor">
+          <div className="row">
+            <div className="col-12">
+              <img src={url} alt="cat" />
+            </div>
+          </div>
+        </div>
+      )
+    }
+
+    <img src={url} alt="cat" />
+
       <div className="contenedor">
         <div className="row">
           <div className="col-12">

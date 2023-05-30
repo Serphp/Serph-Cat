@@ -26,13 +26,14 @@ const Navbar = (): JSX.Element => {
         <>
             <nav>
                 <div className="navcont">
-                    <span>
+                    <div className="search-container">
+                    <span className="search-icon">
                         {
-                            pathname === "/" ? <h2> Stickers</h2> : <span className="back" onClick={goBack}> <BackIcon/> </span>
+                            pathname === "/" ? <h2> Serphp</h2> : <span className="back" onClick={goBack}> <BackIcon/> </span>
                         }
                     </span>
-
-                    <span>
+                    {/* <input type="text" placeholder="Buscar..." /> */}
+                    <span className="search-user">
 
                         {session ? (
                             <Link href='/profile'>
@@ -42,6 +43,7 @@ const Navbar = (): JSX.Element => {
                             null
                         )}
                     </span>
+                </div>
                 </div>
             </nav>
         </>

@@ -1,10 +1,11 @@
+$opacitycard: 0.9;
+
 .catconteiner {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    width: 100%;
-    height: 80%;
-    //background-color: #f5f5f5;
+    height: 90vh;
+
     padding: 20px;
     .catleft {
         display: flex;
@@ -17,10 +18,68 @@
         width: 50%;
         height: 400px;
         padding: 20px;
+        opacity: $opacitycard;
         border-radius: 10px;
         transition: all 0.3s ease-in-out;
-        &:hover {
-            box-shadow: 0 0 50px 0 rgba(255, 255, 255, 0.17);
+    }
+    .catright {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        background: url('https://img.freepik.com/free-vector/hand-drawn-kawaii-illustration_52683-85164.jpg?w=1060&t=st=1683218436~exp=1683219036~hmac=fe90bce9b6fcedd1b9f2fd5ff5202c213d4f0ffdd132753aa60706160d1427b9');
+        background-size: cover;
+        align-items: flex-start;
+        justify-content: flex-start;
+        opacity: $opacitycard;
+        border-radius: 10px;
+        width: 50%;
+        height: 400px;
+        padding: 20px;
+        transition: all 0.3s ease-in-out;
+    }
+    //No footer
+    .catright2 {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        background: url('https://img.freepik.com/vector-gratis/conjunto-ilustracion-dibujos-animados-pata-gato-pie-animal-domestico_1284-51483.jpg?w=996&t=st=1685406051~exp=1685406651~hmac=05667c8a7ce9090f157cfcf8b313829f666c22ec9309ed0e5f0b32da4671aa95');
+        background-size: cover;
+        align-items: flex-start;
+        justify-content: flex-start;
+        opacity: $opacitycard;
+        border-radius: 10px;
+        width: 50%;
+        height: 300px;
+        padding: 20px;
+        transition: all 0.3s ease-in-out;
+    }
+    //Footer
+    .catfooter { 
+        display: flex;
+        flex: 1;
+        flex-direction: column-reverse;
+        //align-items: flex-end;
+        justify-content: space-between;
+        background: url('https://img.freepik.com/vector-gratis/color-of-the-year-2023-illustration_23-2149989585.jpg?w=996&t=st=1685406158~exp=1685406758~hmac=6a5ca177fb81b9fdf32b25167f104e57f1dea1e08cee1ea4a2a50624b0665c4b');
+        background-size: cover;
+        background-position: 0px -60px;
+        width: 50%;
+        height: 300px;
+        padding: 20px;
+        opacity: $opacitycard;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+        .cright {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        .cleft{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: flex-start;
         }
     }
     .catbuttom{
@@ -31,49 +90,18 @@
         background: url('https://pbs.twimg.com/media/FE8sAMqaMAAu9vW.jpg');
         background-size: cover;
         background-repeat: no-repeat;
+        background-position: center;
         width: 100%;
-        height: 400px;
+        height: 300px;
         padding: 20px;
         border-radius: 10px;
-        //border: red solid 1px;
+        opacity: $opacitycard;
         transition: all 0.3s ease-in-out;
-        &:hover {
-            box-shadow: 0 0 50px 0 rgba(255, 255, 255, 0.17);
-        }
     }
-    .catright {
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-        background: url('https://img.freepik.com/free-vector/hand-drawn-kawaii-illustration_52683-85164.jpg?w=1060&t=st=1683218436~exp=1683219036~hmac=fe90bce9b6fcedd1b9f2fd5ff5202c213d4f0ffdd132753aa60706160d1427b9');
-        background-size: cover;
-        align-items: flex-start;
-        justify-content: flex-start;
-        border-radius: 10px;
-        width: 50%;
-        height: 400px;
-        padding: 20px;
-        transition: all 0.3s ease-in-out;
-        &:hover {
-            box-shadow: 0 0 50px 0 rgba(255, 255, 255, 0.17);
+        .catright:hover, .catleft:hover, .catbuttom:hover, .catright2:hover, .catfooter:hover {
+            opacity: 1;
+            box-shadow: 0 0 50px 0 rgba(255, 255, 255, 0.256);
         }
-        // .catright::after {
-        //     content: "";
-        //     display: block;
-        //     position: absolute;
-        //     top: 0;
-        //     left: 0;
-        //     width: 100%;
-        //     height: 100%;
-        //     box-shadow: 0 0 10px rgba(0, 0, 0, .5);
-        //     opacity: 0;
-        //     transition: opacity .3s ease-in-out;
-        //   }
-          
-        //   .catright:hover::after {
-        //     opacity: 1;
-        //   }
-    }
 }
 
 .catinfo {
@@ -122,20 +150,6 @@
 
 }
 
-.catitle {
-    display: block;
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bold;
-
-}
-
-.catname {
-    font-size: 3rem;
-    font-weight: bold;
-    //color: #00ffaa;
-    margin-bottom: 20px;
-}
 
 .catleft {
     display: flex;
@@ -183,31 +197,14 @@
     border-radius: 10px;
     background-color: #ffffff0a;
     align-items: flex-start; /* ajusta la alineación vertical de los elementos */
-    .container2 img {
-        flex: 1 1 auto;
 
-        object-fit: contain;
-      }
   }
 
 
 
 .indexcontainer {
-    //position: relative;
-    //display: flex;
-    //flex-wrap: wrap;
-    //justify-content: space-between;
-    justify-content: center;
     margin: 10px auto;
-    //border: red solid 1px;
     max-width: 1200px;
-    // .catitle {
-    //     text-align: center;
-    //     font-size: 2rem;
-    //     font-weight: bold;
-    //     color: #333;
-    //     margin-bottom: 10px;
-    // }
     img {
         width: 100%;
         height: auto;
@@ -215,9 +212,17 @@
         border-radius: 10px 10px 0 0;
         //border: red solid 1px;
         transition: all 1s ease-in-out;
+        &:hover {
+            border: red inset 5px;
+        }
     }
-    &:hover {
-        border-radius: 10px 10px 0 0;
+    .texto-frente {
+        position: relative;
+        top: 50px;
+        left: 30%;
+        font-size: 24px;
+        //transform: translate(-50%, -50%);
+        z-index: 1;
     }
   }
 

@@ -1,26 +1,112 @@
 nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    position: relative;
+
     padding: 0 20px;
     top: 0;
-    //width: 100%;
+
+
+    .search-container {
+        position: relative;
+        z-index: 1000;
+        input {
+            width: 90%;
+            //padding: 10px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            background-color: #ffffff30;
+            //color: #3a3131dc;
+            font-size: 1rem;
+            transition: all 0.3s ease-in-out;
+            &:focus {
+                background-color: #ffffff50;
+                color: #242121;
+            }
+            &::placeholder {
+                color: #695040d6;
+
+            }
+        }
+      }
+
+      .search-icon {
+        width: 1%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        right: 50%;
+        transform: translateY(-50%);
+        h2 {
+          color: #69524785;
+          font-size: 1.5rem;
+        }
+      }
+
+      .search-user {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: flex-end;
+        justify-content: flex-end;
+        // width: 100%;
+        // position: absolute;
+        // top: 20px;
+        // left: 95%;
+        // transform: translateY(-50%);
+      }
+
+      .back {
+        position: absolute;
+        top: -15px;
+        left: 470px;
+        display: flex;
+        flex-direction: row;
+        width: 50px;
+        opacity: 0.5;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      //mobile
+      @media screen and (max-width: 668px) {
+        .search-container {
+          width: 100%;
+          input {
+            width: 80%;
+          }
+          .search-user {
+            left: 390px;
+          }
+        }
+        .back {
+          left: 140px;
+        }
+        @media screen and (max-width: 438px) {
+            .search-container {
+              width: 100%;
+              input {
+                width: 88%;
+              }
+              .search-user {
+                left: 320px;
+              }
+            }
+            .back {
+              left: 100px;
+            }
+        }
+    }
 
     .navcont {
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        //position: relative;
+        width: 100%;
         border-radius: 0 0 10px 10px;
         padding: 10px;
-        background-color: #839aab45;
-        //margin: 0 100px 0 100px;
-        width: 100%;
-        //height: 100%;
-        border-bottom: 2px solid #e5e5e5;
+        background-color: #e7ecef64;
         backdrop-filter: saturate(180%) blur(5px);
-        //background: rgba(255, 255, 255, 0.8);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
     h1 {
