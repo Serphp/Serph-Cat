@@ -21,6 +21,25 @@
   }
 }
 
+::-webkit-scrollbar {
+  scrollbar-color: #8a7359;
+  width: 10px;
+
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #8a73598e;
+}
+/* Firefox */
+::-moz-scrollbar {
+  background-color: #8a73598e;
+}
+
+/* Firefox */
+::-moz-scrollbar-thumb {
+  background-color: #8a73598e;
+}
+
 html,
 body {
   --custom-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
