@@ -67,7 +67,7 @@ const CatContextProvider = ({ children }) => {
             try {
                 const response = await fetch(`https://cataas.com/cat/says/cat?json=true`);
                 const data = await response.json();
-                console.log(data);
+                //console.log(data);
                 setCatjson(data);
                 setCatImageUrl(null);
             } catch (error) {

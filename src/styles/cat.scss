@@ -152,12 +152,32 @@ $opacitycard: 0.9;
 }
 
 
+.catindex {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+  max-width: 1200px;
+  gap: 10px;
+  @media screen and (max-width: 768px) {
+    flex-direction: column-reverse;
+    .boxitem {
+      width: 100%;
+  }
+  }
+}
+
 .catleftx {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     gap: 15px;
     transition: all 0.3s ease-in-out;
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        gap: 0px;
+    }
 }
 
 .catbutton2 {
