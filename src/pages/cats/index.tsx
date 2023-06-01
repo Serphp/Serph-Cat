@@ -87,9 +87,9 @@ export default function Home() {
           <button className="catbutton" onClick={catimgtext}> Search </button> */}
           
           <div className='catindex'>
-            {catImageUrl ? (
+            {catImageUrl ? 
+            (
               <img src={catImageUrl} alt="Cat"/>
-
             ) : (
               <div className='container'>
                 <input type="text" placeholder="Text" value={temptext || "ejemplo"} onChange={handletexttemp} className="catinput" />
