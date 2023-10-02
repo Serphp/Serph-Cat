@@ -168,6 +168,17 @@ $opacitycard: 0.9;
   }
 }
 
+.catimghome {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px !important;
+    transition: all 1s ease-in-out;
+    &:hover {
+        border: red inset 5px;
+    }
+}
+
 .catleftx {
     display: flex;
     flex-direction: row;

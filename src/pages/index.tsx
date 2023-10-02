@@ -55,7 +55,7 @@ export default function Home() {
       </div>
       <div className='catright2'>
         <h1 className='catname'> Historia </h1>
-        <button className='catbutton'><Link href='/cats'> Entrar </Link></button>
+        <button className='catbutton'><Link href='/story'> Entrar </Link></button>
       </div>
 
     </section>

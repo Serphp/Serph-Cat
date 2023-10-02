@@ -2,6 +2,7 @@
 import { useSession, useUser } from "@supabase/auth-helpers-react";
 import Link from "next/link";
 import React, { useState } from "react";
+import { cats } from "../../styles/cats";
 //import ReactModal from "react-modal";
 
 
@@ -36,68 +37,22 @@ export default function Stickers() {
 
           <div className="catinfo">
 
-            <div className="catinfoitem">
-              <h1 className="catitle"> Stickers 1 </h1>
-                <div className="catdescription">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  <br />
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </div>
-                <div className="cat-contenedor-button">
-                  <Link href="/stickers/pack1">
-                    <button className="catbutton">Ver Pack</button>
-                  </Link>
-                </div>
-            </div>
+          {
+            cats.map((cat, index) => (
+              <div className="catinfoitem" key={index}>
+                <h1 className="catitle"> {cat.titulo} </h1>
+                  <div className="catdescription">
+                    {cat.descripcion}
+                  </div>
+                  <div className="cat-contenedor-button">
+                    <Link href="/stickers/pack1">
+                      <button className="catbutton">Ver Pack</button>
+                    </Link>
+                  </div>
+              </div>
+            ))
+          }
           
-          
-            <div className="catinfoitem">
-              <h1 className="catitle"> Stickers 2 </h1>
-              <div className="catdescription">
-                <Link href="/stickers/pack2">
-                <button className="catbutton">Ver Pack</button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="catinfoitem">
-              <h1 className="catitle"> Stickers 3 </h1>
-              <div className="catdescription">
-                <Link href="/stickers/pack3">
-                <button className="catbutton">Ver Pack</button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="catinfoitem">
-              <h1 className="catitle"> Stickers 3 </h1>
-              <div className="catdescription">
-                <Link href="/stickers/pack3">
-                <button className="catbutton">Ver Pack</button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="catinfoitem">
-              <h1 className="catitle"> Stickers 3 </h1>
-              <div className="catdescription">
-                <Link href="/stickers/pack3">
-                <button className="catbutton">Ver Pack</button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="catinfoitem">
-              <h1 className="catitle"> Stickers 3 </h1>
-              <div className="catdescription">
-                <Link href="/stickers/pack3">
-                <button className="catbutton">Ver Pack</button>
-                </Link>
-              </div>
-            </div>
-
           </div>
         </div>
 

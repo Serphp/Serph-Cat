@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { useSession } from '@supabase/auth-helpers-react'
 import { CatContext } from '../Context/CatContext';
 import { useState, useEffect, useContext } from 'react';
-//import Image from 'next/image';
 
 export default function Home() {
 
@@ -69,19 +68,13 @@ export default function Home() {
           
         <h2> Bienvenido a la sección de Stickers </h2>
             
-            {
-              session && (
-              <>
-              <div className="catleftx">
+        <div className="catleftx">
               <button className="catbutton2"><Link href="/stickers/maker"> Create Sticker </Link></button>
               <button className="catbutton2" onClick={fetchCatImage}> Create Cat </button>
               <button className="catbutton2" onClick={gifCat}> Create Gif </button>
               <button className="catbutton2" onClick={catinfo}> Create Json </button>
 
               </div>
-              </>
-              )
-            }
 
           {/* <input type="text" placeholder="Search" value={catText} onChange={handletext} className="catinput" />
           <button className="catbutton" onClick={catimgtext}> Search </button> */}
@@ -89,7 +82,7 @@ export default function Home() {
           <div className='catindex'>
             {catImageUrl ? 
             (
-              <img src={catImageUrl} alt="Cat"/>
+              <img src={catImageUrl} className='catimghome' alt="Cat"/>
             ) : (
               <div className='container'>
                 <input type="text" placeholder="Text" value={temptext || "ejemplo"} onChange={handletexttemp} className="catinput" />
