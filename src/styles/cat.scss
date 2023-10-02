@@ -174,9 +174,9 @@ $opacitycard: 0.9;
     object-fit: cover;
     border-radius: 10px !important;
     transition: all 1s ease-in-out;
-    &:hover {
-        border: red inset 5px;
-    }
+    // &:hover {
+    //     border: red inset 5px;
+    // }
 }
 
 .catleftx {
@@ -223,6 +223,26 @@ $opacitycard: 0.9;
     }
 }
 
+.container2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    img {
+        width: 366px;
+        height: 200px;
+        &:hover{
+
+            transform: scale(1.1);
+        }
+        &:active{
+            width: auto;
+            height: auto;
+            transform: scale(1.1);
+        }
+    }
+}
+
+
 .indexcontainer {
     margin: 10px auto;
     max-width: 1200px;
@@ -233,9 +253,6 @@ $opacitycard: 0.9;
         border-radius: 10px 10px 0 0;
         //border: red solid 1px;
         transition: all 1s ease-in-out;
-        &:hover {
-            border: red inset 5px;
-        }
     }
     .texto-frente {
         position: relative;
@@ -245,21 +262,21 @@ $opacitycard: 0.9;
         //transform: translate(-50%, -50%);
         z-index: 1;
     }
-  }
+}
 
-  .cat{
+.cat{
     width: 70px;
     height: 50px;
     margin: -10px;
     padding: -10px;
-    border: red solid 1px;
+    //border: red solid 1px;
     transition: all 0.3s ease-in-out;
     &:hover {
         transform: scale(2);
     }
-  }
+}
 
-  .itemspace {
+.itemspace {
     margin: 0 20px 0 -20px;
     //border: red solid 1px;
     .itemspace, img {
@@ -267,7 +284,7 @@ $opacitycard: 0.9;
         
         margin: 0.5%;
     }
-  }
+}
 
 .catdescription { 
     display: flex;
@@ -277,8 +294,8 @@ $opacitycard: 0.9;
     text-align: justify;
     margin: 10px;
 }
-  
-  .item {
+
+.item {
     //border: red solid 1px;
     display: flex;
     flex: 1 1 20%;
@@ -288,24 +305,19 @@ $opacitycard: 0.9;
     &:hover {
         transform: scale(1.1);
     }
-  }
+}
 
-      
-  .itemop {
-
+.itemop {
+    border: red solid 1px;
     display: flex;
-    width: 100%;
+    //width: 100%;
     gap: 10px;
     justify-content: flex-end;
-    opacity: 0;
     transition: all 0.3s ease-in-out;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 0 0 10px 10px;
-    &:hover {
-        //transform: scale(1.1);
-        opacity: 1;
-    }
     .itembutton {
+        position: absolute;
         background-color: rgb(255, 255, 255);
         //border: #333 solid 1px;
         border: none;
@@ -320,10 +332,10 @@ $opacitycard: 0.9;
             box-shadow: 5px 5px 0px 2px rgba(0, 0, 0, 0.5);
         }
     }
-  }
-  
-  .item:last-child {
+}
+
+.item:last-child {
     //width: calc(33.33% - 4px);
     margin: 2px;
-  }
+}
 

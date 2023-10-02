@@ -1,4 +1,5 @@
 import React from "react";
+import Cat from "./api/ApiCat";
 
 export default function Story() {
     return (
@@ -6,6 +7,7 @@ export default function Story() {
         <section className="contenedor">
             <h1> Probando </h1>
             <Mantenimiento/>
+            <Cat/>
             </section>
         </>
     )

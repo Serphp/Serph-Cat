@@ -37,8 +37,6 @@ export default function Profile() {
         </>
       )}
 </div>
-{/* 
-          <ApiCat /> */}
     </div>
     </>
   )
